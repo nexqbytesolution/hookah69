@@ -82,16 +82,16 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden">
+    <footer className="relative bg-linear-to-b from-black to-gray-900 text-white overflow-hidden">
       {/* Decorative Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div
+        {/* <div
           className="absolute inset-0"
           style={{
             backgroundImage: "/public/hookah/hookan1.jpg",
             backgroundSize: "60px 60px",
           }}
-        />
+        /> */}
       </div>
 
       {/* Floating Smoke Icons */}
@@ -121,7 +121,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <div className="relative">
                   <div className="absolute inset-0 bg-amber-500 rounded-full blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
-                  <div className="relative w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
+                  <div className="relative w-14 h-14 bg-linear-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
                     <GiHook className="text-black text-2xl transform -rotate-45" />
                   </div>
                 </div>
@@ -141,25 +141,6 @@ const Footer = () => {
               Experience the finest hookah blends in Pokhara&apos;s most
               luxurious lounge. Where clouds meet comfort and memories are made.
             </p>
-
-            {/* Social Links */}
-            <div className="flex space-x-3">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 ${social.color} hover:scale-110 hover:border-transparent`}
-                    aria-label={social.label}
-                  >
-                    <Icon size={18} />
-                  </a>
-                );
-              })}
-            </div>
 
             {/* Newsletter Signup */}
             <div className="pt-4">
@@ -213,7 +194,7 @@ const Footer = () => {
                 return (
                   <li key={index} className="flex items-start space-x-3 group">
                     <Icon
-                      className="text-amber-500 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform"
+                      className="text-amber-500 mt-1 shrink-0 group-hover:scale-110 transition-transform"
                       size={16}
                     />
                     <span className="text-white/70 text-sm group-hover:text-white/90 transition-colors">
@@ -240,25 +221,23 @@ const Footer = () => {
               Follow Us
               <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-amber-500"></span>
             </h3>
-            <div className="grid grid-cols-3 gap-2">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <a
-                  key={item}
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative aspect-square rounded-lg overflow-hidden group"
-                >
-                  <Image
-                    src={`https://images.unsplash.com/photo-${item === 1 ? "1470337458703-46ad175b1c1f" : "1514932323942-546f5c4b1a3d"}?w=150&q=80`}
-                    alt="Instagram preview"
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <FaInstagram className="absolute bottom-1 right-1 text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-              ))}
+            {/* Social Links */}
+            <div className="flex space-x-3">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 ${social.color} hover:scale-110 hover:border-transparent`}
+                    aria-label={social.label}
+                  >
+                    <Icon size={18} />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

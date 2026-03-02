@@ -45,7 +45,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "#home", icon: HiHome },
     { name: "Ambience", href: "#ambience", icon: HiPhotograph },
-    { name: "Flavors", href: "#flavors", icon: HiSparkles },
+    { name: "Menu", href: "/menu", icon: HiSparkles },
     { name: "Events", href: "#events", icon: HiCalendar },
     { name: "Contact", href: "#contact", icon: HiPhone },
   ];
