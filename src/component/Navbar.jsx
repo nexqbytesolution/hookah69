@@ -43,11 +43,11 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { name: "Home", href: "#home", icon: HiHome },
-    { name: "Ambience", href: "#ambience", icon: HiPhotograph },
+    { name: "Home", href: "/", icon: HiHome },
+    { name: "Gallery", href: "#gallery", icon: HiPhotograph },
     { name: "Menu", href: "/menu", icon: HiSparkles },
-    { name: "Events", href: "#events", icon: HiCalendar },
-    { name: "Contact", href: "#contact", icon: HiPhone },
+
+    { name: "Contact", href: "/contact", icon: HiPhone },
   ];
 
   const socialIcons = [
