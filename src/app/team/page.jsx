@@ -1,5 +1,5 @@
 import React from "react";
-import ChefGrid from "@/component/cheif/ChefGrid";
+import ChefGrid from "@/component/Cheif/ChefGrid";
 
 export const metadata = {
   title: "Our Team | Hookah69 - Premium Lounge Pokhara",

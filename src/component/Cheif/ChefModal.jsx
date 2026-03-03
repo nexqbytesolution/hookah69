@@ -3,21 +3,11 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
   FaStar,
   FaStarHalfAlt,
   FaRegStar,
   FaAward,
   FaUtensils,
-  FaCocktail,
-  FaFire,
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaClock,
   FaTrophy,
 } from "react-icons/fa";
 import {
