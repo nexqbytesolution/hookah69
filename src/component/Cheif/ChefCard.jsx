@@ -117,7 +117,7 @@ const ChefCard = ({ chef, variant = "default", onClick }) => {
         whileHover={{ y: -5 }}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
-        className="group relative bg-gradient-to-b from-white/5 to-white/0 rounded-2xl overflow-hidden border border-white/10 hover:border-[#F4B400]/30 transition-all duration-500"
+        className="group relative bg-linear-to-b from-white/5 to-white/0 rounded-2xl overflow-hidden border border-white/10 hover:border-[#F4B400]/30 transition-all duration-500"
       >
         {/* Image Container */}
         <div className="relative h-80 overflow-hidden">
@@ -128,8 +128,8 @@ const ChefCard = ({ chef, variant = "default", onClick }) => {
             className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
 
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1A2F4B] via-transparent to-transparent opacity-60"></div>
+          {/* linear Overlay */}
+          <div className="absolute inset-0 bg-linear-to-t from-[#1A2F4B] via-transparent to-transparent opacity-60"></div>
 
           {/* Social Links - Appear on Hover */}
           <motion.div
@@ -204,7 +204,7 @@ const ChefCard = ({ chef, variant = "default", onClick }) => {
         className="group bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-[#F4B400]/30 transition-all duration-300 flex"
       >
         {/* Image */}
-        <div className="relative w-32 h-32 flex-shrink-0">
+        <div className="relative w-32 h-32 shrink-0">
           <Image
             src={chef.image}
             alt={chef.name}
