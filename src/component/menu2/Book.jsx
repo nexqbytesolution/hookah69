@@ -41,7 +41,7 @@ export default function Book() {
 
   return (
     <div className="perspective-[200vw]">
-      <div className="relative w-[60vw] h-[44vw] max-w-[900px] max-h-[650px] transform-style-preserve-3d rounded-lg shadow-2xl">
+      <div className="relative w-[60vw] h-[44vw] max-w-225 max-h-162.5 transform-style-preserve-3d rounded-lg shadow-2xl">
         {pageTexts.map((text, i) => {
           const isFlipped = flippedPages.includes(i);
           const isEven = i % 2 !== 0;
@@ -53,12 +53,12 @@ export default function Book() {
               className={`
                 absolute top-0
                 w-[30vw] h-[44vw]
-                max-w-[450px] max-h-[650px]
+                max-w-112.5 max-h-162.5
                 rounded-lg cursor-pointer select-none
                 bg-[#faf8f6]
                 shadow-inner
-                transition-transform duration-[1200ms] ease-in-out
-                [backface-visibility:hidden]
+                transition-transform duration-1200 ease-in-out
+                backface-hidden
                 ${isEven ? "left-0 origin-right rotate-y-180" : "right-0 origin-left"}
                 ${isFlipped ? (isEven ? "rotate-y-0" : "-rotate-y-180") : ""}
               `}

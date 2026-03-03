@@ -44,9 +44,8 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", href: "/", icon: HiHome },
-    { name: "Gallery", href: "#gallery", icon: HiPhotograph },
+    { name: "Gallery", href: "/Gallery", icon: HiPhotograph },
     { name: "Menu", href: "/menu", icon: HiSparkles },
-
     { name: "Contact", href: "/contact", icon: HiPhone },
   ];
 
@@ -70,14 +69,14 @@ const Navbar = () => {
           {/* Logo with Image - UPDATED SECTION */}
           <Link href="/" className="z-50 flex items-center space-x-3 group">
             {/* Logo Image Container */}
-            <div className="relative w-15 h-12 md:w-14 md:h-14">
+            <div className="relative w-20 h-18 md:w-14 md:h-14">
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-amber-500 rounded-full blur-md group-hover:blur-xl transition-all opacity-75"></div>
 
               {/* Image Container */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-amber-500/50 group-hover:border-amber-500 transition-all">
                 <Image
-                  src="/logo.jpg" // Path to your logo image
+                  src="/hookah/logo.jpg" // Path to your logo image
                   alt="Hookah69 Logo"
                   fill
                   className="object-cover"
