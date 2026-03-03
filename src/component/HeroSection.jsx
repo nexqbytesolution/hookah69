@@ -12,7 +12,7 @@ const HeroSection = () => {
       {/* Background Image with Parallax Effect */}
       <div className="absolute inset-0">
         <Image
-          src="/public/hookah/hookan1.jpg"
+          src="/hookah/hookan1.jpg"
           alt="Hookah Lounge"
           fill
           className="object-cover scale-105 animate-ken-burns"
@@ -20,7 +20,7 @@ const HeroSection = () => {
           quality={100}
         />
         {/* Soft Gradient Overlay - Like Paradiso's subtle overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/30 to-black/60"></div>
       </div>
 
       {/* Content Container */}
@@ -72,14 +72,14 @@ const HeroSection = () => {
             style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
           >
             <Link
-              href="#flavors"
+              href="/menu"
               className="group relative px-8 py-3 bg-amber-500 text-black font-medium rounded-full hover:bg-amber-400 transition-all duration-300 transform hover:scale-105 overflow-hidden"
             >
               <span className="relative z-10">Explore Flavors</span>
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </Link>
             <Link
-              href="#ambience"
+              href="/gallery"
               className="group px-8 py-3 text-white font-medium rounded-full border border-white/30 hover:border-white/60 hover:bg-white/10 transition-all duration-300"
             >
               Discover Ambience
@@ -133,7 +133,7 @@ const HeroSection = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fadeIn"
         style={{ animationDelay: "1.5s", animationFillMode: "forwards" }}
       >
-        <div className="w-[30px] h-[50px] rounded-full border border-white/30 flex justify-center">
+        <div className="w-7.5 h-12.5 rounded-full border border-white/30 flex justify-center">
           <div className="w-1 h-3 bg-amber-500/80 rounded-full mt-2 animate-scroll"></div>
         </div>
       </div>

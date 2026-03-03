@@ -9,7 +9,7 @@ const ContactHero = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/public/hookah/hookan1.jpg"
+          src="/hookah/hookan1.jpg"
           alt="Contact Background"
           fill
           className="object-cover"

@@ -65,7 +65,7 @@ const MenuPage = () => {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, #F4B400 1px, transparent 0)`,
+            backgroundImage: `/hookah/logo.jpg`, // Path to your pattern image
             backgroundSize: "40px 40px",
           }}
         />
