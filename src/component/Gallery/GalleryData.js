@@ -1,4 +1,4 @@
-export const galleryData = {
+const galleryData = {
   hero: {
     title: "Our Gallery",
     subtitle: "Moments at Hookah69",
@@ -318,3 +318,5 @@ export const galleryData = {
     },
   ],
 };
+
+export default galleryData;
