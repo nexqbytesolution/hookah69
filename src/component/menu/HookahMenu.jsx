@@ -51,7 +51,7 @@ const HookahMenu = ({ data }) => {
           initial={{ x: 50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="bg-gradient-to-br from-[#F4B400]/20 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-[#F4B400]/30"
+          className="bg-linear-to-br from-[#F4B400]/20 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-[#F4B400]/30"
         >
           <h3 className="text-2xl font-semibold text-[#F4B400] mb-6 flex items-center gap-2">
             <FaFire /> Signature Specials

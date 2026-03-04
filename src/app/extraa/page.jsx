@@ -342,7 +342,7 @@ const MenuPage = () => {
   return (
     <div className="min-h-screen bg-[#0A1928] text-[#F5F0E8]">
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[500px] w-full">
+      <section className="relative h-[50vh] min-h-125 w-full">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <Image
@@ -352,7 +352,7 @@ const MenuPage = () => {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A1928]/90 via-[#0A1928]/70 to-[#0A1928]"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-[#0A1928]/90 via-[#0A1928]/70 to-[#0A1928]"></div>
         </div>
 
         {/* Header Content */}
@@ -391,7 +391,7 @@ const MenuPage = () => {
 
       {/* Today's Specials Banner */}
       <section className="relative -mt-20 z-10 container mx-auto px-4">
-        <div className="bg-gradient-to-r from-[#C5A059] to-[#B38F4A] rounded-2xl p-10 shadow-2xl">
+        <div className="bg-linear-to-r from-[#C5A059] to-[#B38F4A] rounded-2xl p-10 shadow-2xl">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-4">
               <div className="bg-[#0A1928]/20 p-4 rounded-full">
@@ -526,7 +526,7 @@ const MenuPage = () => {
       </section>
 
       {/* Info Section */}
-      <section className="bg-gradient-to-t from-[#0A1928] to-[#1A2938] py-20 border-t border-[#C5A059]/10">
+      <section className="bg-linear-to-t from-[#0A1928] to-[#1A2938] py-20 border-t border-[#C5A059]/10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Hours */}

@@ -26,7 +26,7 @@ const MenuItem = ({ item, index }) => {
       className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-[#F4B400]/30 transition-all duration-500"
     >
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#F4B400]/5 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-[#F4B400]/5 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
 
       {/* Popular Badge */}
       {item.price > 500 && (

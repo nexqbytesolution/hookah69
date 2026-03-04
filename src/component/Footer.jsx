@@ -25,12 +25,12 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Ambience", href: "#ambience" },
-    { name: "Flavors", href: "#flavors" },
-    { name: "Events", href: "#events" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Menu", href: "/menu" },
+    { name: "Team", href: "/team" },
+    { name: "Contact", href: "/contact" },
+    { name: "Reserve", href: "/reserve" },
   ];
 
   const contactInfo = [
@@ -85,17 +85,18 @@ const Footer = () => {
     <footer className="relative bg-linear-to-b from-black to-gray-900 text-white overflow-hidden">
       {/* Decorative Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        {/* <div
+        <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "/public/hookah/hookan1.jpg",
-            backgroundSize: "60px 60px",
+            backgroundImage:
+              "radial-gradient(circle at 2px 2px, #F4B400 1px, transparent 0)",
+            backgroundSize: "40px 40px",
           }}
-        /> */}
+        />
       </div>
 
-      {/* Floating Smoke Icons */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* Floating Smoke Icons - Hidden on mobile for performance */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
         {[...Array(3)].map((_, i) => (
           <div
             key={i}
@@ -112,38 +113,140 @@ const Footer = () => {
         ))}
       </div>
 
-      <div className="relative container mx-auto px-4 py-16 md:py-20">
+      <div className="relative container mx-auto px-4 py-12 md:py-20">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
-          {/* Brand Column */}
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-8 mb-8 md:mb-12">
+          {/* Brand Column - Full width on mobile */}
+          <div className="space-y-4 md:space-y-6 col-span-1 md:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block group">
               <div className="flex items-center space-x-3">
                 <div className="relative">
                   <div className="absolute inset-0 bg-amber-500 rounded-full blur-xl group-hover:blur-2xl transition-all opacity-50"></div>
-                  <div className="relative w-14 h-14 bg-linear-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
-                    <GiHook className="text-black text-2xl transform -rotate-45" />
+                  <div className="relative w-12 h-12 md:w-14 md:h-14 bg-linear-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
+                    <GiHook className="text-black text-xl md:text-2xl transform -rotate-45" />
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold">
+                  <h2 className="text-xl md:text-2xl font-bold">
                     <span className="text-white">HOOKAH</span>
                     <span className="text-amber-500">69</span>
                   </h2>
-                  <p className="text-xs text-white/50 tracking-wider">
+                  <p className="text-[10px] md:text-xs text-white/50 tracking-wider">
                     PREMIUM LOUNGE
                   </p>
                 </div>
               </div>
             </Link>
 
-            <p className="text-white/70 text-sm leading-relaxed">
+            <p className="text-white/70 text-xs md:text-sm leading-relaxed max-w-md md:max-w-full">
               Experience the finest hookah blends in Pokhara&apos;s most
               luxurious lounge. Where clouds meet comfort and memories are made.
             </p>
 
-            {/* Newsletter Signup */}
-            <div className="pt-4">
+            {/* Newsletter Signup - Hidden on mobile to save space */}
+            <div className="pt-2 md:pt-4 hidden md:block">
+              <h4 className="text-sm font-semibold mb-3 flex items-center space-x-2">
+                <HiOutlineSparkles className="text-amber-500" />
+                <span>Join the VIP Club</span>
+              </h4>
+              <div className="flex max-w-xs">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="flex-1 px-4 py-2 bg-white/5 border border-white/10 rounded-l-full text-sm text-white placeholder-white/40 focus:outline-none focus:border-amber-500/50 transition-colors"
+                />
+                <button className="px-4 py-2 bg-amber-500 text-black rounded-r-full font-medium text-sm hover:bg-amber-400 transition-all hover:scale-105 transform">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links - 2 columns on mobile */}
+          <div className="col-span-1">
+            <h3 className="text-base md:text-lg font-semibold mb-4 md:mb-6 relative inline-block">
+              Quick Links
+              <span className="absolute -bottom-2 left-0 w-8 md:w-12 h-0.5 bg-amber-500"></span>
+            </h3>
+            <div className="grid grid-cols-2 gap-2 md:block md:space-y-3">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-white/60 hover:text-amber-500 transition-all duration-300 flex items-center space-x-2 group text-xs md:text-sm"
+                >
+                  <span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                  <span>{link.name}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Info - Full width on mobile */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-1">
+            <h3 className="text-base md:text-lg font-semibold mb-4 md:mb-6 relative inline-block">
+              Visit Us
+              <span className="absolute -bottom-2 left-0 w-8 md:w-12 h-0.5 bg-amber-500"></span>
+            </h3>
+            <ul className="space-y-3 md:space-y-4">
+              {contactInfo.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <li key={index} className="flex items-start space-x-3 group">
+                    <Icon
+                      className="text-amber-500 mt-1 shrink-0 group-hover:scale-110 transition-transform"
+                      size={14}
+                    />
+                    <span className="text-white/70 text-xs md:text-sm group-hover:text-white/90 transition-colors">
+                      {item.text}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+
+            {/* Business Hours Badge */}
+            <div className="mt-4 md:mt-6 p-3 md:p-4 bg-white/5 rounded-xl border border-white/10">
+              <h4 className="text-xs md:text-sm font-semibold mb-1 md:mb-2">
+                Happy Hours
+              </h4>
+              <p className="text-amber-500 text-xl md:text-2xl font-light">
+                4PM - 7PM
+              </p>
+              <p className="text-white/50 text-[10px] md:text-xs mt-1">
+                50% off on selected flavors
+              </p>
+            </div>
+          </div>
+
+          {/* Follow Us - Social links at bottom on mobile */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-1">
+            <h3 className="text-base md:text-lg font-semibold mb-4 md:mb-6 relative inline-block">
+              Follow Us
+              <span className="absolute -bottom-2 left-0 w-8 md:w-12 h-0.5 bg-amber-500"></span>
+            </h3>
+
+            {/* Social Links - Grid on mobile, flex on desktop */}
+            <div className="grid grid-cols-3 gap-2 md:flex md:space-x-3">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 ${social.color} hover:scale-110 hover:border-transparent`}
+                    aria-label={social.label}
+                  >
+                    <Icon size={16} />
+                  </a>
+                );
+              })}
+            </div>
+
+            {/* Mobile Newsletter Signup - Only visible on mobile */}
+            <div className="mt-6 md:hidden">
               <h4 className="text-sm font-semibold mb-3 flex items-center space-x-2">
                 <HiOutlineSparkles className="text-amber-500" />
                 <span>Join the VIP Club</span>
@@ -160,95 +263,17 @@ const Footer = () => {
               </div>
             </div>
           </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 relative inline-block">
-              Quick Links
-              <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-amber-500"></span>
-            </h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white/60 hover:text-amber-500 transition-all duration-300 flex items-center space-x-2 group"
-                  >
-                    <span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    <span>{link.name}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 relative inline-block">
-              Visit Us
-              <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-amber-500"></span>
-            </h3>
-            <ul className="space-y-4">
-              {contactInfo.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <li key={index} className="flex items-start space-x-3 group">
-                    <Icon
-                      className="text-amber-500 mt-1 shrink-0 group-hover:scale-110 transition-transform"
-                      size={16}
-                    />
-                    <span className="text-white/70 text-sm group-hover:text-white/90 transition-colors">
-                      {item.text}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-
-            {/* Business Hours Badge */}
-            <div className="mt-6 p-4 bg-white/5 rounded-xl border border-white/10">
-              <h4 className="text-sm font-semibold mb-2">Happy Hours</h4>
-              <p className="text-amber-500 text-2xl font-light">4PM - 7PM</p>
-              <p className="text-white/50 text-xs mt-1">
-                50% off on selected flavors
-              </p>
-            </div>
-          </div>
-
-          {/* Instagram Preview */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 relative inline-block">
-              Follow Us
-              <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-amber-500"></span>
-            </h3>
-            {/* Social Links */}
-            <div className="flex space-x-3">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 ${social.color} hover:scale-110 hover:border-transparent`}
-                    aria-label={social.label}
-                  >
-                    <Icon size={18} />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
         </div>
 
         {/* Payment Methods & Copyright */}
-        <div className="pt-8 mt-8 border-t border-white/10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="pt-6 md:pt-8 mt-6 md:mt-8 border-t border-white/10">
+          <div className="flex flex-col md:flex-row lg:flex-row items-center justify-between gap-4 md:gap-6">
             {/* Payment Icons */}
-            <div className="flex items-center space-x-4">
-              <span className="text-white/40 text-sm">We Accept:</span>
-              <div className="flex items-center space-x-3">
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+              <span className="text-white/40 text-xs md:text-sm">
+                We Accept:
+              </span>
+              <div className="flex items-center space-x-2 md:space-x-3">
                 {paymentIcons.map((payment, index) => {
                   const Icon = payment.icon;
                   return (
@@ -257,7 +282,7 @@ const Footer = () => {
                       className="text-white/40 hover:text-amber-500 transition-colors"
                       title={payment.name}
                     >
-                      <Icon size={24} />
+                      <Icon size={20} />
                     </div>
                   );
                 })}
@@ -265,44 +290,23 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="text-center lg:text-right">
-              <p className="text-white/40 text-sm">
+            <div className="text-center">
+              <p className="text-white/40 text-xs md:text-sm">
                 © {currentYear} Hookah69. All rights reserved.
               </p>
-              <p className="text-white/20 text-xs mt-1">
+              <p className="text-white/20 text-[10px] md:text-xs mt-1">
                 Designed with <span className="text-amber-500">❤</span> in
                 Pokhara
               </p>
             </div>
-
-            {/* Back to Top */}
-            <Link
-              href="#home"
-              className="group fixed bottom-8 right-8 w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center text-black hover:bg-amber-400 transition-all hover:scale-110 shadow-lg hover:shadow-amber-500/25 animate-bounce-slow"
-              aria-label="Back to top"
-            >
-              <svg
-                className="w-6 h-6 transform rotate-45 group-hover:rotate-0 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 10l7-7m0 0l7 7m-7-7v18"
-                />
-              </svg>
-            </Link>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-black/50 py-3">
+      <div className="bg-black/50 py-2 md:py-3">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-white/30">
+          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 text-[10px] md:text-xs text-white/30">
             <Link
               href="/privacy"
               className="hover:text-amber-500 transition-colors"
@@ -314,14 +318,14 @@ const Footer = () => {
               href="/terms"
               className="hover:text-amber-500 transition-colors"
             >
-              Terms of Service
+              Terms
             </Link>
             <span>•</span>
             <Link
               href="/cookies"
               className="hover:text-amber-500 transition-colors"
             >
-              Cookie Policy
+              Cookies
             </Link>
             <span>•</span>
             <Link
@@ -333,6 +337,27 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* Back to Top Button - Adjusted for mobile */}
+      <Link
+        href="#"
+        className="group fixed bottom-4 right-4 md:bottom-8 md:right-8 w-10 h-10 md:w-12 md:h-12 bg-amber-500 rounded-full flex items-center justify-center text-black hover:bg-amber-400 transition-all hover:scale-110 shadow-lg hover:shadow-amber-500/25 animate-bounce-slow z-50"
+        aria-label="Back to top"
+      >
+        <svg
+          className="w-5 h-5 md:w-6 md:h-6 transform rotate-45 group-hover:rotate-0 transition-transform"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 10l7-7m0 0l7 7m-7-7v18"
+          />
+        </svg>
+      </Link>
     </footer>
   );
 };

@@ -76,7 +76,7 @@ const GalleryPage = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-[#F4B400] to-[#F4B400]/80 rounded-2xl p-8 shadow-2xl"
+            className="bg-linear-to-r from-[#F4B400] to-[#F4B400]/80 rounded-2xl p-8 shadow-2xl"
           >
             <h3 className="text-2xl font-bold text-[#1A2F4B] mb-4">
               Featured Moments
@@ -96,7 +96,7 @@ const GalleryPage = () => {
                     width={400}
                     height={400}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A2F4B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-[#1A2F4B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   {item.type === "video" && (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-12 h-12 bg-[#F4B400] rounded-full flex items-center justify-center">

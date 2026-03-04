@@ -7,18 +7,14 @@ import {
   HiOutlineUser,
   HiOutlineMail,
   HiOutlinePhone,
-  HiOutlineCalendar,
-  HiOutlineClock,
-  HiOutlineUsers,
   HiOutlineChatAlt,
-  HiOutlinePaperAirplane,
   HiOutlineCheckCircle,
   HiOutlineXCircle,
 } from "react-icons/hi";
 import { FaWhatsapp } from "react-icons/fa";
 
 const ContactForm = ({ formStatus, setFormStatus }) => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const {
     register,
@@ -31,10 +27,6 @@ const ContactForm = ({ formStatus, setFormStatus }) => {
       name: "",
       email: "",
       phone: "",
-      service: "reservation",
-      date: "",
-      time: "",
-      guests: "2",
       message: "",
     },
   });
@@ -42,72 +34,72 @@ const ContactForm = ({ formStatus, setFormStatus }) => {
   // Watch form values for WhatsApp message
   const formValues = watch();
 
-  const services = [
-    { value: "reservation", label: "Table Reservation" },
-    { value: "inquiry", label: "General Inquiry" },
-    { value: "feedback", label: "Feedback" },
-    { value: "complaint", label: "Complaint" },
-    { value: "event", label: "Event Booking" },
-    { value: "private", label: "Private Party" },
-  ];
-
-  const guestOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"];
-
   const onSubmit = async (data) => {
-    setIsSubmitting(true);
+    setIsSending(true);
 
-    // Simulate API call
-    setTimeout(() => {
+    // Format the message
+    const message = `📬 *New Message from Hookah69 Website* 📬
+    
+👤 *Name:* ${data.name}
+📧 *Email:* ${data.email}
+📞 *Phone:* ${data.phone}
+
+💭 *Message:*
+${data.message}`;
+
+    // Encode for WhatsApp
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/9779812345678?text=${encodedMessage}`;
+
+    try {
+      // Open WhatsApp with the message
+      window.open(whatsappUrl, "_blank");
+
       setFormStatus({
         submitted: true,
         success: true,
-        message: "Thank you! We'll get back to you within 24 hours.",
+        message: "Message opened in WhatsApp! You can now send it.",
       });
-      setIsSubmitting(false);
-      reset(); // Reset form after successful submission
-    }, 2000);
-  };
 
-  const handleWhatsApp = () => {
-    const message = encodeURIComponent(
-      `Hi! I'd like to make an inquiry.\n\nName: ${formValues.name}\nService: ${formValues.service}\nMessage: ${formValues.message}`,
-    );
-    window.open(`https://wa.me/9779812345678?text=${message}`, "_blank");
+      // Reset form after successful send
+      reset();
+
+      // Clear status after 5 seconds
+      setTimeout(() => {
+        setFormStatus({ submitted: false, success: false, message: "" });
+      }, 5000);
+    } catch (error) {
+      console.error("WhatsApp error:", error);
+      setFormStatus({
+        submitted: true,
+        success: false,
+        message: "Failed to open WhatsApp. Please try again.",
+      });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
-    <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+    <div className="bg-[#1A1A1A] rounded-3xl p-8 border border-[#F4B400]/20 shadow-2xl">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-            <span className="w-1 h-6 bg-[#F4B400] rounded-full"></span>
-            Send us a Message
-          </h2>
-          <p className="text-white/50 text-sm mt-1">
-            We&apos;ll respond within 24 hours
-          </p>
-        </div>
-
-        {/* WhatsApp Alternative */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={handleWhatsApp}
-          className="flex items-center gap-2 px-4 py-2 bg-green-500/20 text-green-500 rounded-full hover:bg-green-500 hover:text-white transition-all duration-300 border border-green-500/30"
-        >
-          <FaWhatsapp className="text-xl" />
-          <span className="text-sm font-medium hidden sm:inline">WhatsApp</span>
-        </motion.button>
+      <div className="mb-8">
+        <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+          <span className="w-1 h-6 bg-[#F4B400] rounded-full"></span>
+          Send us a Message
+        </h3>
+        <p className="text-white/50 text-sm">
+          We&apos;ll respond via WhatsApp within 24 hours
+        </p>
       </div>
 
       {/* Success/Error Message */}
       <AnimatePresence>
         {formStatus.submitted && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -10 }}
             className={`mb-6 p-4 rounded-xl flex items-center gap-3 ${
               formStatus.success
                 ? "bg-green-500/20 border border-green-500/30"
@@ -115,12 +107,16 @@ const ContactForm = ({ formStatus, setFormStatus }) => {
             }`}
           >
             {formStatus.success ? (
-              <HiOutlineCheckCircle className="text-green-500 text-2xl" />
+              <HiOutlineCheckCircle className="text-green-500 text-xl" />
             ) : (
-              <HiOutlineXCircle className="text-red-500 text-2xl" />
+              <HiOutlineXCircle className="text-red-500 text-xl" />
             )}
             <p
-              className={formStatus.success ? "text-green-500" : "text-red-500"}
+              className={
+                formStatus.success
+                  ? "text-green-500 text-sm"
+                  : "text-red-500 text-sm"
+              }
             >
               {formStatus.message}
             </p>
@@ -129,146 +125,78 @@ const ContactForm = ({ formStatus, setFormStatus }) => {
       </AnimatePresence>
 
       {/* Form */}
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Name and Email */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className=" text-white/70 text-sm mb-2 flex items-center gap-2">
-              <HiOutlineUser className="text-[#F4B400]" /> Your Name *
-            </label>
-            <input
-              type="text"
-              {...register("name", {
-                required: "Name is required",
-                minLength: {
-                  value: 2,
-                  message: "Name must be at least 2 characters",
-                },
-              })}
-              className={`w-full px-4 py-3 bg-white/5 border ${
-                errors.name ? "border-red-500" : "border-white/10"
-              } rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors`}
-              placeholder="John Doe"
-            />
-            {errors.name && (
-              <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
-            )}
-          </div>
-
-          <div>
-            <label className=" text-white/70 text-sm mb-2 flex items-center gap-2">
-              <HiOutlineMail className="text-[#F4B400]" /> Email Address *
-            </label>
-            <input
-              type="email"
-              {...register("email", {
-                required: "Email is required",
-                pattern: {
-                  value: /\S+@\S+\.\S+/,
-                  message: "Email is invalid",
-                },
-              })}
-              className={`w-full px-4 py-3 bg-white/5 border ${
-                errors.email ? "border-red-500" : "border-white/10"
-              } rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors`}
-              placeholder="john@example.com"
-            />
-            {errors.email && (
-              <p className="text-red-500 text-xs mt-1">
-                {errors.email.message}
-              </p>
-            )}
-          </div>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        {/* Name */}
+        <div>
+          <label className=" text-white/70 text-sm mb-2 flex items-center gap-2">
+            <HiOutlineUser className="text-[#F4B400]" /> Your Name *
+          </label>
+          <input
+            type="text"
+            {...register("name", {
+              required: "Name is required",
+              minLength: {
+                value: 2,
+                message: "Name must be at least 2 characters",
+              },
+            })}
+            className={`w-full px-4 py-3 bg-white/5 border ${
+              errors.name ? "border-red-500" : "border-white/10"
+            } rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors`}
+            placeholder="John Doe"
+          />
+          {errors.name && (
+            <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
+          )}
         </div>
 
-        {/* Phone and Service */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className=" text-white/70 text-sm mb-2 flex items-center gap-2">
-              <HiOutlinePhone className="text-[#F4B400]" /> Phone Number *
-            </label>
-            <input
-              type="tel"
-              {...register("phone", {
-                required: "Phone number is required",
-                pattern: {
-                  value:
-                    /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,4}[-\s.]?[0-9]{1,4}$/,
-                  message: "Please enter a valid phone number",
-                },
-              })}
-              className={`w-full px-4 py-3 bg-white/5 border ${
-                errors.phone ? "border-red-500" : "border-white/10"
-              } rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors`}
-              placeholder="+977 981-2345678"
-            />
-            {errors.phone && (
-              <p className="text-red-500 text-xs mt-1">
-                {errors.phone.message}
-              </p>
-            )}
-          </div>
-
-          <div>
-            <label className=" text-white/70 text-sm mb-2 flex items-center gap-2">
-              <HiOutlineChatAlt className="text-[#F4B400]" /> Service Type
-            </label>
-            <select
-              {...register("service")}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors"
-            >
-              {services.map((service) => (
-                <option
-                  key={service.value}
-                  value={service.value}
-                  className="bg-[#1A2F4B]"
-                >
-                  {service.label}
-                </option>
-              ))}
-            </select>
-          </div>
+        {/* Email */}
+        <div>
+          <label className=" text-white/70 text-sm mb-2 flex items-center gap-2">
+            <HiOutlineMail className="text-[#F4B400]" /> Email Address *
+          </label>
+          <input
+            type="email"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: "Email is invalid",
+              },
+            })}
+            className={`w-full px-4 py-3 bg-white/5 border ${
+              errors.email ? "border-red-500" : "border-white/10"
+            } rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors`}
+            placeholder="john@example.com"
+          />
+          {errors.email && (
+            <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
+          )}
         </div>
 
-        {/* Date, Time, Guests */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
-            <label className=" text-white/70 text-sm mb-2 flex items-center gap-2">
-              <HiOutlineCalendar className="text-[#F4B400]" /> Date
-            </label>
-            <input
-              type="date"
-              {...register("date")}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className=" text-white/70 text-sm mb-2 flex items-center gap-2">
-              <HiOutlineClock className="text-[#F4B400]" /> Time
-            </label>
-            <input
-              type="time"
-              {...register("time")}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className=" text-white/70 text-sm mb-2 flex items-center gap-2">
-              <HiOutlineUsers className="text-[#F4B400]" /> Guests
-            </label>
-            <select
-              {...register("guests")}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors"
-            >
-              {guestOptions.map((option) => (
-                <option key={option} value={option} className="bg-[#1A2F4B]">
-                  {option} {option === "1" ? "Guest" : "Guests"}
-                </option>
-              ))}
-            </select>
-          </div>
+        {/* Phone */}
+        <div>
+          <label className=" text-white/70 text-sm mb-2 flex items-center gap-2">
+            <HiOutlinePhone className="text-[#F4B400]" /> Phone Number *
+          </label>
+          <input
+            type="tel"
+            {...register("phone", {
+              required: "Phone number is required",
+              pattern: {
+                value:
+                  /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,4}[-\s.]?[0-9]{1,4}$/,
+                message: "Please enter a valid phone number",
+              },
+            })}
+            className={`w-full px-4 py-3 bg-white/5 border ${
+              errors.phone ? "border-red-500" : "border-white/10"
+            } rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors`}
+            placeholder="+977 981-2345678"
+          />
+          {errors.phone && (
+            <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>
+          )}
         </div>
 
         {/* Message */}
@@ -277,7 +205,7 @@ const ContactForm = ({ formStatus, setFormStatus }) => {
             <HiOutlineChatAlt className="text-[#F4B400]" /> Your Message *
           </label>
           <textarea
-            rows="5"
+            rows="4"
             {...register("message", {
               required: "Message is required",
               minLength: {
@@ -288,7 +216,7 @@ const ContactForm = ({ formStatus, setFormStatus }) => {
             className={`w-full px-4 py-3 bg-white/5 border ${
               errors.message ? "border-red-500" : "border-white/10"
             } rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors resize-none`}
-            placeholder="Tell us about your inquiry or reservation details..."
+            placeholder="Tell us about your inquiry..."
           />
           {errors.message && (
             <p className="text-red-500 text-xs mt-1">
@@ -300,22 +228,20 @@ const ContactForm = ({ formStatus, setFormStatus }) => {
         {/* Submit Button */}
         <motion.button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSending}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className={`w-full py-4 bg-[#F4B400] text-[#1A2F4B] rounded-xl font-semibold text-lg flex items-center justify-center gap-3 ${
-            isSubmitting ? "opacity-70 cursor-not-allowed" : "hover:bg-white"
-          } transition-all duration-300`}
+          className="w-full py-4 bg-[#F4B400] text-black rounded-xl font-semibold text-lg flex items-center justify-center gap-3 hover:bg-white transition-all duration-300"
         >
-          {isSubmitting ? (
+          {isSending ? (
             <>
-              <div className="w-5 h-5 border-2 border-[#1A2F4B] border-t-transparent rounded-full animate-spin"></div>
-              Sending...
+              <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+              Opening WhatsApp...
             </>
           ) : (
             <>
-              <HiOutlinePaperAirplane className="text-xl" />
-              Send Message
+              <FaWhatsapp className="text-xl" />
+              Send via WhatsApp
             </>
           )}
         </motion.button>
@@ -326,6 +252,14 @@ const ContactForm = ({ formStatus, setFormStatus }) => {
           to being contacted.
         </p>
       </form>
+
+      {/* Response Time Note */}
+      <div className="mt-4 text-center">
+        <p className="text-white/30 text-xs flex items-center justify-center gap-1">
+          <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          We typically respond within 5-10 minutes
+        </p>
+      </div>
     </div>
   );
 };

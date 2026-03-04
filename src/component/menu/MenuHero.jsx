@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const MenuHero = () => {
   return (
-    <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
+    <section className="relative h-[60vh] min-h-125 w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -15,7 +15,7 @@ const MenuHero = () => {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1A2F4B]/90 via-[#1A2F4B]/70 to-[#1A2F4B]"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-[#1A2F4B]/90 via-[#1A2F4B]/70 to-[#1A2F4B]"></div>
       </div>
 
       {/* Animated Content */}
