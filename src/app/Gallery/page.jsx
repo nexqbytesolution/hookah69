@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import GalleryHero from "../../component/gallery/GalleryHero";
-import GalleryFilters from "../../component/gallery/GalleryFilters";
-import GalleryGrid from "../../component/gallery/GalleryGrid";
-import Lightbox from "../../component/gallery/Lightbox";
-import galleryData from "../../component/gallery/GalleryData";
+import { motion } from "framer-motion";
+import GalleryHero from "@/component/gallery/GalleryHero";
+import GalleryFilters from "@/component/gallery/GalleryFilters";
+import GalleryGrid from "@/component/gallery/GalleryGrid";
+import Lightbox from "@/component/gallery/Lightbox";
+import galleryData from "@/component/gallery/GalleryData";
 import Image from "next/image";
 
 const GalleryPage = () => {
@@ -15,13 +15,22 @@ const GalleryPage = () => {
   const [currentItem, setCurrentItem] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Safety check for galleryData
+  const items = galleryData?.items || [];
+  const categories = galleryData?.categories || [];
+  const hero = galleryData?.hero || {
+    title: "Gallery",
+    subtitle: "Moments",
+    description: "",
+  };
+
   // Filter items based on category
   const filteredItems =
     activeCategory === "all"
-      ? galleryData.items
-      : galleryData.items.filter((item) => item.category === activeCategory);
+      ? items
+      : items.filter((item) => item.category === activeCategory);
 
-  const featuredItems = galleryData.items.filter((item) => item.featured);
+  const featuredItems = items.filter((item) => item.featured);
 
   const handleItemClick = (item, index) => {
     setCurrentItem(item);
@@ -30,12 +39,14 @@ const GalleryPage = () => {
   };
 
   const handleNext = () => {
+    if (filteredItems.length === 0) return;
     const newIndex = (currentIndex + 1) % filteredItems.length;
     setCurrentIndex(newIndex);
     setCurrentItem(filteredItems[newIndex]);
   };
 
   const handlePrev = () => {
+    if (filteredItems.length === 0) return;
     const newIndex =
       (currentIndex - 1 + filteredItems.length) % filteredItems.length;
     setCurrentIndex(newIndex);
@@ -49,13 +60,14 @@ const GalleryPage = () => {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `/hookah/logo.jpg`, // Path to your pattern image
+            backgroundImage: `url('/hookah/logo.jpg')`,
             backgroundSize: "40px 40px",
+            backgroundRepeat: "repeat",
           }}
         />
       </div>
 
-      <GalleryHero data={galleryData.hero} />
+      <GalleryHero data={hero} />
 
       {/* Featured Section */}
       {featuredItems.length > 0 && (
@@ -64,7 +76,7 @@ const GalleryPage = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-linear-to-r from-[#F4B400] to-[#F4B400]/80 rounded-2xl p-8 shadow-2xl"
+            className="bg-gradient-to-r from-[#F4B400] to-[#F4B400]/80 rounded-2xl p-8 shadow-2xl"
           >
             <h3 className="text-2xl font-bold text-[#1A2F4B] mb-4">
               Featured Moments
@@ -74,19 +86,17 @@ const GalleryPage = () => {
                 <motion.div
                   key={item.id}
                   whileHover={{ scale: 1.05 }}
-                  onClick={() =>
-                    handleItemClick(item, galleryData.items.indexOf(item))
-                  }
+                  onClick={() => handleItemClick(item, items.indexOf(item))}
                   className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
                 >
                   <Image
-                    src={item.thumbnail}
+                    src={item.thumbnail || "/hookah/logo.jpg"}
                     alt={item.title}
                     className="w-full h-full object-cover"
-                    width={1000}
-                    height={1000}
+                    width={400}
+                    height={400}
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#1A2F4B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A2F4B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   {item.type === "video" && (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-12 h-12 bg-[#F4B400] rounded-full flex items-center justify-center">
@@ -104,26 +114,34 @@ const GalleryPage = () => {
       {/* Filters */}
       <section className="container mx-auto px-4 py-12">
         <GalleryFilters
-          categories={galleryData.categories}
+          categories={categories}
           activeCategory={activeCategory}
           setActiveCategory={setActiveCategory}
           totalItems={filteredItems.length}
         />
 
         {/* Gallery Grid */}
-        <GalleryGrid items={filteredItems} onItemClick={handleItemClick} />
+        {filteredItems.length > 0 ? (
+          <GalleryGrid items={filteredItems} onItemClick={handleItemClick} />
+        ) : (
+          <div className="text-center py-12 text-white/50">
+            No items found in this category
+          </div>
+        )}
       </section>
 
       {/* Lightbox */}
-      <Lightbox
-        isOpen={lightboxOpen}
-        onClose={() => setLightboxOpen(false)}
-        currentItem={currentItem}
-        onNext={handleNext}
-        onPrev={handlePrev}
-        hasNext={currentIndex < filteredItems.length - 1}
-        hasPrev={currentIndex > 0}
-      />
+      {currentItem && (
+        <Lightbox
+          isOpen={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+          currentItem={currentItem}
+          onNext={handleNext}
+          onPrev={handlePrev}
+          hasNext={currentIndex < filteredItems.length - 1}
+          hasPrev={currentIndex > 0}
+        />
+      )}
     </main>
   );
 };
