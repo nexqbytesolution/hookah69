@@ -2,11 +2,11 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import GalleryHero from "@/component/gallery/GalleryHero";
-import GalleryFilters from "@/component/gallery/GalleryFilters";
-import GalleryGrid from "@/component/gallery/GalleryGrid";
-import Lightbox from "@/component/gallery/Lightbox";
-import galleryData from "@/component/gallery/GalleryData.js";
+import GalleryHero from "../../component/gallery/GalleryHero";
+import GalleryFilters from "../../component/gallery/GalleryFilters";
+import GalleryGrid from "../../component/gallery/GalleryGrid";
+import Lightbox from "../../component/gallery/Lightbox";
+import galleryData from "../../component/gallery/GalleryData.js";
 import Image from "next/image";
 
 const GalleryPage = () => {
