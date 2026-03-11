@@ -33,7 +33,7 @@ const HeroSection = () => {
           >
             <span className="inline-flex items-center space-x-1 md:space-x-2 text-white/80 text-[10px] md:text-sm tracking-[0.2em] uppercase">
               <HiOutlineSparkles className="text-amber-500/80 w-3 h-3 md:w-4 md:h-4" />
-              <span>Est. 2024 • Lakeside Pokhara</span>
+              <span>Est. 2023 • Greenland chowk, Kathmandu</span>
               <HiOutlineSparkles className="text-amber-500/80 w-3 h-3 md:w-4 md:h-4" />
             </span>
           </div>
@@ -101,7 +101,7 @@ const HeroSection = () => {
             </div>
             <div className="text-center">
               <div className="text-xl md:text-3xl font-light text-white">
-                100+
+                20+
               </div>
               <div className="text-[10px] md:text-sm text-white/60 tracking-wider mt-1">
                 DRINKS
@@ -124,12 +124,12 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-white/60 text-[10px] sm:text-sm">
           <div className="flex items-center space-x-2">
             <FaRegClock className="text-amber-500/80 w-3 h-3 sm:w-4 sm:h-4" />
-            <span>Open Daily • 4PM - 2AM</span>
+            <span>Open Daily • 10AM - 10PM</span>
           </div>
           <div className="hidden sm:block text-white/20">|</div>
           <div className="flex items-center space-x-2">
             <FaMapMarkerAlt className="text-amber-500/80 w-3 h-3 sm:w-4 sm:h-4" />
-            <span>Lakeside, Pokhara</span>
+            <span>Greenland chowk, Kathmandu</span>
           </div>
         </div>
       </div>

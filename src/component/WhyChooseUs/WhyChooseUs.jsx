@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   GiHook,
@@ -74,7 +74,7 @@ const WhyChooseUs = () => {
     { icon: HiOutlineClock, text: "Open Late Night" },
     { icon: FaWifi, text: "Free High-Speed WiFi" },
     { icon: FaParking, text: "Valet Parking" },
-    { icon: HiOutlineLocationMarker, text: "Lakeside Location" },
+    { icon: HiOutlineLocationMarker, text: "Center Location" },
     { icon: FaShieldAlt, text: "Safe & Secure" },
     { icon: HiOutlineHeart, text: "Loved by Locals" },
     { icon: HiOutlineEmojiHappy, text: "Friendly Staff" },
@@ -142,10 +142,10 @@ const WhyChooseUs = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Experience the <span className="text-[#F4B400]">Best</span> Lounge
+            Experience the <span className="text-[#F4B400]">Best</span> Bar
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Discover why Hookah69 is Pokhara&apos;s most loved premium lounge
+            Discover why Hookah69 is Kathmandu&apos;s most loved premium lounge
           </p>
         </motion.div>
 
@@ -253,10 +253,12 @@ const WhyChooseUs = () => {
           transition={{ delay: 0.6 }}
           className="text-center mt-16"
         >
-          <button className="group relative px-8 py-4 bg-[#F4B400] text-[#1A2F4B] rounded-full font-semibold text-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
-            <span className="relative z-10">Book Your Experience</span>
-            <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-          </button>
+          <Link href="/reserve" className="group relative inline-block">
+            <button className="group relative px-8 py-4 cursor-pointer bg-[#F4B400] text-[#1A2F4B] rounded-full font-semibold text-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
+              <span className="relative z-10">Book Your Experience</span>
+              <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+            </button>
+          </Link>
           <p className="text-white/40 text-sm mt-4">
             Join hundreds of happy customers every night
           </p>

@@ -34,40 +34,28 @@ const Footer = () => {
   ];
 
   const contactInfo = [
-    { icon: FaMapMarkerAlt, text: "Lakeside Road, Pokhara, Nepal" },
+    { icon: FaMapMarkerAlt, text: "Greenland chowk, Kathmandu, Nepal" },
     { icon: FaPhone, text: "+977 981-2345678" },
     { icon: FaEnvelope, text: "info@hookah69.com" },
-    { icon: FaRegClock, text: "Daily • 4PM - 2AM" },
+    { icon: FaRegClock, text: "Daily • 10AM - 10PM" },
   ];
 
   const socialLinks = [
     {
       icon: FaFacebookF,
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/profile.php?id=100085491741693&ref=NONE_ig_profile_ac",
       label: "Facebook",
       color: "hover:bg-blue-600",
     },
     {
       icon: FaInstagram,
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/hookah69_official/",
       label: "Instagram",
       color: "hover:bg-pink-600",
     },
     {
-      icon: FaTwitter,
-      href: "https://twitter.com",
-      label: "Twitter",
-      color: "hover:bg-blue-400",
-    },
-    {
-      icon: FaSnapchatGhost,
-      href: "https://snapchat.com",
-      label: "Snapchat",
-      color: "hover:bg-yellow-500",
-    },
-    {
       icon: FaTiktok,
-      href: "https://tiktok.com",
+      href: "https://www.tiktok.com/@hookah696?_r=1&_t=ZS-94bU8WGpx72",
       label: "TikTok",
       color: "hover:bg-black",
     },
@@ -132,7 +120,7 @@ const Footer = () => {
                     <span className="text-amber-500">69</span>
                   </h2>
                   <p className="text-[10px] md:text-xs text-white/50 tracking-wider">
-                    PREMIUM LOUNGE
+                    PREMIUM BAR
                   </p>
                 </div>
               </div>
@@ -142,24 +130,6 @@ const Footer = () => {
               Experience the finest hookah blends in Pokhara&apos;s most
               luxurious lounge. Where clouds meet comfort and memories are made.
             </p>
-
-            {/* Newsletter Signup - Hidden on mobile to save space */}
-            <div className="pt-2 md:pt-4 hidden md:block">
-              <h4 className="text-sm font-semibold mb-3 flex items-center space-x-2">
-                <HiOutlineSparkles className="text-amber-500" />
-                <span>Join the VIP Club</span>
-              </h4>
-              <div className="flex max-w-xs">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 px-4 py-2 bg-white/5 border border-white/10 rounded-l-full text-sm text-white placeholder-white/40 focus:outline-none focus:border-amber-500/50 transition-colors"
-                />
-                <button className="px-4 py-2 bg-amber-500 text-black rounded-r-full font-medium text-sm hover:bg-amber-400 transition-all hover:scale-105 transform">
-                  Subscribe
-                </button>
-              </div>
-            </div>
           </div>
 
           {/* Quick Links - 2 columns on mobile */}
@@ -204,19 +174,6 @@ const Footer = () => {
                 );
               })}
             </ul>
-
-            {/* Business Hours Badge */}
-            <div className="mt-4 md:mt-6 p-3 md:p-4 bg-white/5 rounded-xl border border-white/10">
-              <h4 className="text-xs md:text-sm font-semibold mb-1 md:mb-2">
-                Happy Hours
-              </h4>
-              <p className="text-amber-500 text-xl md:text-2xl font-light">
-                4PM - 7PM
-              </p>
-              <p className="text-white/50 text-[10px] md:text-xs mt-1">
-                50% off on selected flavors
-              </p>
-            </div>
           </div>
 
           {/* Follow Us - Social links at bottom on mobile */}
@@ -239,29 +196,10 @@ const Footer = () => {
                     className={`w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 ${social.color} hover:scale-110 hover:border-transparent`}
                     aria-label={social.label}
                   >
-                    
                     <Icon size={16} />
                   </a>
                 );
               })}
-            </div>
-
-            {/* Mobile Newsletter Signup - Only visible on mobile */}
-            <div className="mt-6 md:hidden">
-              <h4 className="text-sm font-semibold mb-3 flex items-center space-x-2">
-                <HiOutlineSparkles className="text-amber-500" />
-                <span>Join the VIP Club</span>
-              </h4>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 px-4 py-2 bg-white/5 border border-white/10 rounded-l-full text-sm text-white placeholder-white/40 focus:outline-none focus:border-amber-500/50 transition-colors"
-                />
-                <button className="px-4 py-2 bg-amber-500 text-black rounded-r-full font-medium text-sm hover:bg-amber-400 transition-all hover:scale-105 transform">
-                  Subscribe
-                </button>
-              </div>
             </div>
           </div>
         </div>

@@ -24,14 +24,14 @@ const Owners = () => {
       id: 1,
       name: "Rajan Thapa",
       title: "Founder & CEO",
-      bio: "With over 15 years of experience in hospitality, Rajan founded Hookah69 with a vision to create Pokhara's most premium lounge experience. His passion for excellence and attention to detail has made Hookah69 a favorite destination.",
+      bio: "With over 7 years of experience in hospitality, Rajan founded Hookah69 with a vision to create Kathmandu's most premium lounge experience. His passion for excellence and attention to detail has made Hookah69 a favorite destination.",
       image: "/cheif/cheif.jpg",
       quote: "We don't just serve hookah, we create memories.",
       experience: "15+ years",
       specialty: "Hospitality Expert",
       email: "rajan@hookah69.com",
       phone: "+977 981-2345678",
-      location: "Pokhara, Nepal",
+      location: "Kathmandu, Nepal",
       social: [
         {
           icon: FaFacebookF,
@@ -55,44 +55,9 @@ const Owners = () => {
         },
       ],
       stats: [
-        { label: "Years", value: "15+" },
-        { label: "Branches", value: "3" },
+        { label: "Years", value: "7+" },
+        { label: "Branches", value: "1" },
         { label: "Awards", value: "8" },
-      ],
-    },
-    {
-      id: 2,
-      name: "Suman Gurung",
-      title: "Co-Founder & Operations Head",
-      bio: "Suman brings 12 years of culinary expertise and lounge management to Hookah69. His innovative approach to flavor combinations and customer experience has earned him recognition in the industry.",
-      image: "/cheif/cheif.jpg",
-      quote: "Every flavor tells a story. Let us share ours with you.",
-      experience: "12+ years",
-      specialty: "Flavor Expert",
-      email: "suman@hookah69.com",
-      phone: "+977 981-2345679",
-      location: "Pokhara, Nepal",
-      social: [
-        {
-          icon: FaFacebookF,
-          url: "https://facebook.com",
-          color: "hover:bg-blue-600",
-        },
-        {
-          icon: FaInstagram,
-          url: "https://instagram.com",
-          color: "hover:bg-pink-600",
-        },
-        {
-          icon: FaTwitter,
-          url: "https://twitter.com",
-          color: "hover:bg-blue-400",
-        },
-      ],
-      stats: [
-        { label: "Years", value: "12+" },
-        { label: "Flavors", value: "50+" },
-        { label: "Awards", value: "5" },
       ],
     },
   ];
@@ -150,7 +115,7 @@ const Owners = () => {
         </motion.div>
 
         {/* Owners Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className=" gap-8 max-w-6xl flex  justify-center  mx-auto">
           {owners.map((owner, index) => (
             <motion.div
               key={owner.id}

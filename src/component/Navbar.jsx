@@ -62,10 +62,21 @@ const Navbar = () => {
   ];
 
   const socialIcons = [
-    { icon: FaFacebookF, href: "https://facebook.com", label: "Facebook" },
-    { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: FaTiktok, href: "https://tiktok.com", label: "Tiktok" },
-    { icon: FaSnapchatGhost, href: "https://snapchat.com", label: "Snapchat" },
+    {
+      icon: FaFacebookF,
+      href: "https://www.facebook.com/profile.php?id=100085491741693&ref=NONE_ig_profile_ac",
+      label: "Facebook",
+    },
+    {
+      icon: FaInstagram,
+      href: "https://www.instagram.com/hookah69_official/",
+      label: "Instagram",
+    },
+    {
+      icon: FaTiktok,
+      href: "https://www.tiktok.com/@hookah696?_r=1&_t=ZS-94bU8WGpx72",
+      label: "Tiktok",
+    },
   ];
 
   return (
@@ -109,7 +120,7 @@ const Navbar = () => {
                   <span className="text-amber-500 ml-1">69</span>
                 </h1>
                 <span className="text-[8px] md:text-xs text-white/50 tracking-widest hidden sm:block">
-                  PREMIUM LOUNGE
+                  PREMIUM BAR
                 </span>
               </div>
             </Link>
