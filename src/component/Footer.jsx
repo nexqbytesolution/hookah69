@@ -239,6 +239,7 @@ const Footer = () => {
                     className={`w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 ${social.color} hover:scale-110 hover:border-transparent`}
                     aria-label={social.label}
                   >
+                    
                     <Icon size={16} />
                   </a>
                 );
@@ -294,9 +295,8 @@ const Footer = () => {
               <p className="text-white/40 text-xs md:text-sm">
                 © {currentYear} Hookah69. All rights reserved.
               </p>
-              <p className="text-white/20 text-[10px] md:text-xs mt-1">
-                Designed with <span className="text-amber-500">❤</span> in
-                Pokhara
+              <p className="text-white/10 text-[10px] md:text-xs mt-1">
+                Designed By Nexqbyte
               </p>
             </div>
           </div>

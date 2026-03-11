@@ -55,7 +55,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", href: "/", icon: HiHome },
-    { name: "Gallery", href: "/Gallery", icon: HiPhotograph }, // lowercase g
+    { name: "Gallery", href: "/gallery", icon: HiPhotograph }, // lowercase g
     { name: "Menu", href: "/menu", icon: HiSparkles },
     { name: "Team", href: "/team", icon: IoPeople },
     { name: "Contact", href: "/contact", icon: HiPhone },
