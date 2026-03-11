@@ -26,7 +26,11 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        <main className="pt-20 md:pt-24 min-h-screen">
+          {" "}
+          {/* Add padding top */}
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
