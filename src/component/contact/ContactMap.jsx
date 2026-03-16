@@ -19,7 +19,7 @@ const ContactMap = () => {
       {/* Map Container */}
       <div className="relative w-full h-100 rounded-xl overflow-hidden border border-white/10">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14130.912987456!2d83.9545!3d28.2095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDEyJzM0LjIiTiA4M8KwNTcnMTYuMiJF!5e0!3m2!1sen!2snp!4v1234567890"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.0457235961962!2d85.32162537525535!3d27.746735676160117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190e1436a065%3A0x5352e32d2e53c20!2sHookah69!5e0!3m2!1sen!2snp!4v1773681774323!5m2!1sen!2snp"
           width="100%"
           height="100%"
           style={{ border: 0 }}

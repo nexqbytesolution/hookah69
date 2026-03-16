@@ -424,43 +424,6 @@ _Booking received from Hookah69 Website_`;
         </motion.button>
       </form>
 
-      {/* Book via Call Section */}
-      <div className="mt-6 pt-6 border-t border-white/10">
-        <p className="text-white/50 text-sm text-center mb-4">
-          Or book directly via
-        </p>
-
-        <div className="grid grid-cols-2 gap-4">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => (window.location.href = "tel:+9779812345678")}
-            className="py-3 bg-green-500/20 border border-green-500/30 rounded-xl text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
-          >
-            <FaPhoneAlt />
-            <span>Call Now</span>
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const message = encodeURIComponent(
-                `Hi! I'd like to book a table.\n\nName: ${watchAllFields.name}\nTable: ${watchAllFields.tableNumber}\nDate: ${watchAllFields.date}\nTime: ${watchAllFields.time}\nGuests: ${watchAllFields.guests}`,
-              );
-              window.open(
-                `https://wa.me/9779849748294?text=${message}`,
-                "_blank",
-              );
-            }}
-            className="py-3 bg-[#25D366]/20 border border-[#25D366]/30 rounded-xl text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
-          >
-            <FaWhatsapp />
-            <span>Quick WhatsApp</span>
-          </motion.button>
-        </div>
-      </div>
-
       {/* Table Availability Note */}
       <div className="mt-4 text-center">
         <p className="text-white/30 text-xs flex items-center justify-center gap-1">

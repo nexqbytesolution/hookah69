@@ -19,6 +19,7 @@ import {
   GiMicrophone,
   GiCakeSlice,
 } from "react-icons/gi";
+import { FaWhatsapp, FaPhoneAlt, FaBriefcase } from "react-icons/fa";
 import { HiOutlineSparkles } from "react-icons/hi";
 import { MdFamilyRestroom } from "react-icons/md";
 
@@ -42,7 +43,6 @@ const FeaturesSection = () => {
       bgColor: "bg-pink-500/10",
       borderColor: "border-pink-500/30",
       textColor: "text-pink-500",
-      popular: true,
     },
     {
       id: 2,
@@ -63,84 +63,6 @@ const FeaturesSection = () => {
       bgColor: "bg-red-500/10",
       borderColor: "border-red-500/30",
       textColor: "text-red-500",
-    },
-    {
-      id: 3,
-      title: "Family Gathering",
-      icon: MdFamilyRestroom,
-      price: "रू 5,999",
-      description:
-        "Perfect for family reunions and get-togethers with loved ones",
-      includes: [
-        "Family section seating",
-        "2 Premium hookahs",
-        "Family platter (serves 4-6)",
-        "Soft drinks for kids",
-        "Games & activities",
-        "Family photo session",
-      ],
-      color: "from-green-500 to-emerald-500",
-      bgColor: "bg-green-500/10",
-      borderColor: "border-green-500/30",
-      textColor: "text-green-500",
-    },
-    {
-      id: 4,
-      title: "Bachelor/Bachelorette",
-      icon: GiChampagneCork,
-      price: "रू 6,999",
-      description: "Last blast of freedom with your closest friends",
-      includes: [
-        "VIP section access",
-        "3 Premium hookahs",
-        "Champagne bucket (1 bottle)",
-        "Party favors for all",
-        "Personalized playlist",
-        "Photo booth access",
-      ],
-      color: "from-purple-500 to-indigo-500",
-      bgColor: "bg-purple-500/10",
-      borderColor: "border-purple-500/30",
-      textColor: "text-purple-500",
-      popular: true,
-    },
-    {
-      id: 5,
-      title: "Corporate Event",
-      icon: FaUsers,
-      price: "रू 8,999",
-      description: "Impress your clients and colleagues with premium service",
-      includes: [
-        "Conference setup",
-        "Premium hookahs (4 flavors)",
-        "Business lunch/dinner",
-        "Projector & screen",
-        "Welcome drinks",
-        "Separate billing available",
-      ],
-      color: "from-blue-500 to-indigo-500",
-      bgColor: "bg-blue-500/10",
-      borderColor: "border-blue-500/30",
-      textColor: "text-blue-500",
-    },
-    {
-      id: 6,
-      title: "Live Music Night",
-      icon: GiMicrophone,
-      price: "रू 2,999",
-      description: "Enjoy live performances with friends",
-      includes: [
-        "Premium hookah (1 flavor)",
-        "Live band performance",
-        "Welcome drink",
-        "Dance floor access",
-        "Photo with artist",
-        "Recorded video",
-      ],
-      color: "from-amber-500 to-yellow-500",
-      bgColor: "bg-amber-500/10",
-      borderColor: "border-amber-500/30",
-      textColor: "text-amber-500",
     },
   ];
 
@@ -274,48 +196,6 @@ const FeaturesSection = () => {
           })}
         </div>
 
-        {/* Decorations Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="mt-10"
-        >
-          <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-            <span className="w-1 h-5 bg-[#F4B400] rounded-full"></span>
-            Add-on Decorations
-          </h3>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {decorations.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.7 + index * 0.05 }}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white/5 hover:bg-white/10 rounded-xl p-3 border border-white/10 hover:border-[#F4B400]/30 transition-all cursor-pointer"
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <Icon className="text-[#F4B400] text-lg" />
-                    <h4 className="text-white text-sm font-medium">
-                      {item.name}
-                    </h4>
-                  </div>
-                  <p className="text-white/40 text-[10px] mb-1">
-                    {item.description}
-                  </p>
-                  <p className="text-[#F4B400] text-xs font-semibold">
-                    {item.price}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
-
         {/* Custom Quote */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -331,6 +211,42 @@ const FeaturesSection = () => {
             Contact us for custom quote →
           </button>
         </motion.div>
+        {/* Book via Call Section */}
+        <div className="mt-6 pt-6 border-t border-white/10">
+          <p className="text-white/50 text-sm text-center mb-4">
+            Or book directly via
+          </p>
+
+          <div className="grid grid-cols-2 gap-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => (window.location.href = "tel:+9779812345678")}
+              className="py-3 bg-green-500/20 border border-green-500/30 rounded-xl text-green-500 hover:bg-green-500 hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              <FaPhoneAlt />
+              <span>Call Now</span>
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const message = encodeURIComponent(
+                  `Hi! I'd like to book a table.\n\nName: ${watchAllFields.name}\nTable: ${watchAllFields.tableNumber}\nDate: ${watchAllFields.date}\nTime: ${watchAllFields.time}\nGuests: ${watchAllFields.guests}`,
+                );
+                window.open(
+                  `https://wa.me/9779849748294?text=${message}`,
+                  "_blank",
+                );
+              }}
+              className="py-3 bg-[#25D366]/20 border border-[#25D366]/30 rounded-xl text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              <FaWhatsapp />
+              <span>Quick WhatsApp</span>
+            </motion.button>
+          </div>
+        </div>
       </div>
     </section>
   );

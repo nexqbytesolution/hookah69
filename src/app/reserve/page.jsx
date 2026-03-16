@@ -1,6 +1,7 @@
 import React from "react";
 import VideoSection from "@/component/reserve/VideoSection";
 import ReservationForm from "@/component/reserve/ReservationForm";
+import BirthdayBook from "@/component/reserve/BirthdayBook";
 
 export const metadata = {
   title: "Reserve Your Table | Hookah69 - Premium Lounge Pokhara",
