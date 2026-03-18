@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import {
-  FaBirthdayCake,
+  FaHeart,
   FaStar,
   FaUsers,
   FaCrown,
@@ -14,18 +14,23 @@ import {
   FaPause,
   FaVolumeUp,
   FaVolumeMute,
+  FaRing,
+  FaGlassCheers,
+  FaCamera,
+  FaMusic,
+  FaWineGlassAlt,
 } from "react-icons/fa";
 import {
-  GiPartyPopper,
-  GiBalloons,
-  GiCakeSlice,
   GiChampagneCork,
-  GiSparkles,
+  GiBalloons,
   GiFlowerPot,
+  GiCakeSlice,
+  GiSparkles,
+  GiRose,
 } from "react-icons/gi";
 import { HiOutlineSparkles, HiOutlineGift } from "react-icons/hi";
 import { IoMdFlash } from "react-icons/io";
-import { MdCelebration } from "react-icons/md";
+import { MdCelebration, MdRestaurant } from "react-icons/md";
 
 // Constants outside component
 const PRICES = {
@@ -43,17 +48,17 @@ const PRICES = {
     },
   },
   decoration: {
-    basic: 2000,
-    premium: 4000,
-    deluxe: 7000,
+    romantic: 3000,
+    premium: 5000,
+    deluxe: 8000,
   },
   addOns: {
-    balloons: 500,
-    confetti: 300,
-    champagne: 1200,
+    flowers: 800,
+    champagne: 1500,
     photoBooth: 2000,
-    partyPoppers: 400,
+    musicPlaylist: 500,
     cakeTopper: 300,
+    rosePetals: 400,
   },
 };
 
@@ -67,75 +72,64 @@ const CAKE_OPTIONS = {
     { value: "chocolate", label: "Chocolate", price: 0 },
     { value: "vanilla", label: "Vanilla", price: 0 },
     { value: "strawberry", label: "Strawberry", price: 200 },
-    { value: "blackforest", label: "Black Forest", price: 300 },
     { value: "redvelvet", label: "Red Velvet", price: 400 },
+    { value: "blackforest", label: "Black Forest", price: 300 },
   ],
 };
 
 const DECORATION_PACKAGES = [
   {
-    value: "basic",
-    label: "Basic",
-    price: 2000,
-    includes: ["Balloon arch", "Birthday banner", "Table confetti"],
-    icon: GiBalloons,
-    color: "blue",
+    value: "romantic",
+    label: "Romantic",
+    price: 3000,
+    includes: ["Rose petals", "Candle light setup", "Romantic table decor"],
+    icon: GiRose,
+    color: "red",
   },
   {
     value: "premium",
     label: "Premium",
-    price: 4000,
+    price: 5000,
     includes: [
-      "Balloon arch",
       "Flower arrangement",
       "Photo backdrop",
-      "Themed setup",
+      "Heart balloons",
+      "Candle light setup",
     ],
-    icon: FaCrown,
+    icon: GiFlowerPot,
     color: "purple",
   },
   {
     value: "deluxe",
     label: "Deluxe",
-    price: 7000,
+    price: 8000,
     includes: [
-      "Premium balloons",
-      "Fresh flowers",
+      "Premium flowers",
       "Custom backdrop",
       "Lighting setup",
+      "Rose petal path",
       "Party favors",
       "Dedicated host",
     ],
-    icon: GiSparkles,
+    icon: FaCrown,
     color: "pink",
   },
 ];
 
 const ADD_ON_OPTIONS = [
-  { value: "balloons", label: "Extra Balloons", price: 500, icon: GiBalloons },
-  {
-    value: "confetti",
-    label: "Confetti Cannons",
-    price: 300,
-    icon: MdCelebration,
-  },
+  { value: "flowers", label: "Extra Flowers", price: 800, icon: GiFlowerPot },
   {
     value: "champagne",
     label: "Champagne Bucket",
-    price: 1200,
+    price: 1500,
     icon: GiChampagneCork,
   },
+  { value: "photoBooth", label: "Photo Booth", price: 2000, icon: FaCamera },
   {
-    value: "photoBooth",
-    label: "Photo Booth",
-    price: 2000,
-    icon: HiOutlineGift,
-  },
-  {
-    value: "partyPoppers",
-    label: "Party Poppers",
-    price: 400,
-    icon: GiPartyPopper,
+    value: "musicPlaylist",
+    label: "Custom Playlist",
+    price: 500,
+    icon: FaMusic,
   },
   {
     value: "cakeTopper",
@@ -143,9 +137,10 @@ const ADD_ON_OPTIONS = [
     price: 300,
     icon: GiCakeSlice,
   },
+  { value: "rosePetals", label: "Rose Petals", price: 400, icon: GiRose },
 ];
 
-const BirthdayBook = () => {
+const AnniversaryBook = () => {
   const [showSummary, setShowSummary] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(true);
   const [videoMuted, setVideoMuted] = useState(true);
@@ -156,14 +151,14 @@ const BirthdayBook = () => {
     handleSubmit,
     watch,
     setValue,
-    formState: { errors, isSubmitting },
+    formState: { isSubmitting },
   } = useForm({
     defaultValues: {
       guests: "10",
       cakeSize: "medium",
-      cakeFlavor: "chocolate",
+      cakeFlavor: "redvelvet",
       cakeQuantity: "1",
-      decorationPackage: "basic",
+      decorationPackage: "romantic",
       addOns: [],
       specialRequest: "",
     },
@@ -229,7 +224,7 @@ const BirthdayBook = () => {
       .filter(Boolean)
       .join(", ");
 
-    const message = `🎂 *NEW BIRTHDAY BOOKING* 🎂
+    const message = `💕 *NEW ANNIVERSARY BOOKING* 💕
     
 ━━━━━━━━━━━━━━━━━━━
 *Event Details*
@@ -302,10 +297,6 @@ _Booking received from Hookah69 Website_`;
 
             {/* Video Overlay */}
             <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/30" />
-
-            {/* Video Controls */}
-
-            {/* Video Badge */}
           </motion.div>
 
           {/* Right side - Header Text */}
@@ -315,10 +306,10 @@ _Booking received from Hookah69 Website_`;
             className="flex flex-col justify-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
-              Plan Your <span className="text-pink-500">Birthday</span>
+              Celebrate Your <span className="text-red-500">Love Story</span>
             </h1>
             <p className="text-white/60 text-lg mb-6">
-              Customize every detail of your special day with our premium
+              Create unforgettable memories with our romantic anniversary
               packages
             </p>
           </motion.div>
@@ -333,16 +324,16 @@ _Booking received from Hookah69 Website_`;
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-[#1A1A1A] rounded-2xl p-6 border border-pink-500/20 hover:border-pink-500/40 transition-all"
+                className="bg-[#1A1A1A] rounded-2xl p-6 border border-red-500/20 hover:border-red-500/40 transition-all"
               >
                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <FaUsers className="text-pink-500" /> Guest Details
+                  <FaUsers className="text-red-500" /> Guest Details
                 </h3>
                 <select
                   {...register("guests")}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:border-pink-500 focus:outline-none"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:border-red-500 focus:outline-none"
                 >
-                  {[5, 10, 15, 20, 25, 30, 35, 40, 45, 50].map((num) => (
+                  {[2, 5, 10, 15, 20, 25, 30, 40, 50].map((num) => (
                     <option key={num} value={num} className="bg-[#1A1A1A]">
                       {num} Guests
                     </option>
@@ -355,10 +346,10 @@ _Booking received from Hookah69 Website_`;
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-[#1A1A1A] rounded-2xl p-6 border border-pink-500/20 hover:border-pink-500/40 transition-all"
+                className="bg-[#1A1A1A] rounded-2xl p-6 border border-red-500/20 hover:border-red-500/40 transition-all"
               >
                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <GiCakeSlice className="text-pink-500" /> Cake Selection
+                  <GiCakeSlice className="text-red-500" /> Anniversary Cake
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
@@ -411,10 +402,10 @@ _Booking received from Hookah69 Website_`;
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-[#1A1A1A] rounded-2xl p-6 border border-pink-500/20 hover:border-pink-500/40 transition-all"
+                className="bg-[#1A1A1A] rounded-2xl p-6 border border-red-500/20 hover:border-red-500/40 transition-all"
               >
                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <GiSparkles className="text-pink-500" /> Decoration Package
+                  <GiRose className="text-red-500" /> Decoration Package
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   {DECORATION_PACKAGES.map((pkg) => {
@@ -427,17 +418,17 @@ _Booking received from Hookah69 Website_`;
                         onClick={() => setValue("decorationPackage", pkg.value)}
                         className={`p-4 rounded-xl border text-left transition-all ${
                           isSelected
-                            ? "bg-pink-500/20 border-pink-500"
+                            ? "bg-red-500/20 border-red-500"
                             : "bg-white/5 border-white/10 hover:bg-white/10"
                         }`}
                       >
                         <div className="flex items-center gap-3 mb-2">
                           <div
-                            className={`p-2 rounded-lg ${isSelected ? "bg-pink-500" : "bg-white/10"}`}
+                            className={`p-2 rounded-lg ${isSelected ? "bg-red-500" : "bg-white/10"}`}
                           >
                             <Icon
                               className={
-                                isSelected ? "text-black" : "text-pink-500"
+                                isSelected ? "text-black" : "text-red-500"
                               }
                             />
                           </div>
@@ -445,7 +436,7 @@ _Booking received from Hookah69 Website_`;
                             <span className="text-white font-medium block">
                               {pkg.label}
                             </span>
-                            <span className="text-pink-500 text-sm">
+                            <span className="text-red-500 text-sm">
                               रू {pkg.price}
                             </span>
                           </div>
@@ -461,10 +452,10 @@ _Booking received from Hookah69 Website_`;
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-[#1A1A1A] rounded-2xl p-6 border border-pink-500/20 hover:border-pink-500/40 transition-all"
+                className="bg-[#1A1A1A] rounded-2xl p-6 border border-red-500/20 hover:border-red-500/40 transition-all"
               >
                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <HiOutlineGift className="text-pink-500" /> Add-ons
+                  <HiOutlineGift className="text-red-500" /> Romantic Add-ons
                 </h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {ADD_ON_OPTIONS.map((item) => {
@@ -477,16 +468,16 @@ _Booking received from Hookah69 Website_`;
                         onClick={() => handleAddOnChange(item.value)}
                         className={`flex items-center gap-2 p-3 rounded-lg border text-sm transition-all ${
                           isSelected
-                            ? "bg-pink-500/20 border-pink-500"
+                            ? "bg-red-500/20 border-red-500"
                             : "bg-white/5 border-white/10 hover:bg-white/10"
                         }`}
                       >
                         {isSelected ? (
-                          <FaCheckCircle className="text-pink-500" />
+                          <FaCheckCircle className="text-red-500" />
                         ) : (
                           <FaRegCircle className="text-white/30" />
                         )}
-                        <Icon className="text-pink-500" />
+                        <Icon className="text-red-500" />
                         <span className="text-white/70 text-xs">
                           {item.label}
                         </span>
@@ -501,17 +492,16 @@ _Booking received from Hookah69 Website_`;
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-[#1A1A1A] rounded-2xl p-6 border border-pink-500/20 hover:border-pink-500/40 transition-all"
+                className="bg-[#1A1A1A] rounded-2xl p-6 border border-red-500/20 hover:border-red-500/40 transition-all"
               >
                 <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <HiOutlineSparkles className="text-pink-500" /> Special
-                  Request
+                  <HiOutlineSparkles className="text-red-500" /> Special Request
                 </h3>
                 <textarea
                   {...register("specialRequest")}
                   rows="3"
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:border-pink-500 focus:outline-none"
-                  placeholder="Custom cake message, specific colors, etc."
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:border-red-500 focus:outline-none"
+                  placeholder="Custom cake message, specific colors, romantic requests..."
                 />
               </motion.div>
 
@@ -521,7 +511,7 @@ _Booking received from Hookah69 Website_`;
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 bg-linear-to-r from-pink-500 to-pink-600 text-black rounded-xl font-bold text-lg hover:from-pink-400 hover:to-pink-500 transition-all shadow-lg hover:shadow-pink-500/25 disabled:opacity-50"
+                className="w-full py-4 bg-linear-to-r from-red-500 to-red-600 text-black rounded-xl font-bold text-lg hover:from-red-400 hover:to-red-500 transition-all shadow-lg hover:shadow-red-500/25 disabled:opacity-50"
               >
                 {isSubmitting ? "Processing..." : "Book via WhatsApp"}
               </motion.button>
@@ -534,9 +524,9 @@ _Booking received from Hookah69 Website_`;
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-1"
           >
-            <div className="bg-linear-to-b from-[#1A1A1A] to-black rounded-2xl p-6 border border-pink-500/20 sticky top-24 shadow-2xl">
+            <div className="bg-linear-to-b from-[#1A1A1A] to-black rounded-2xl p-6 border border-red-500/20 sticky top-24 shadow-2xl">
               <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                <FaStar className="text-pink-500" /> Price Summary
+                <FaStar className="text-red-500" /> Price Summary
               </h3>
 
               <div className="space-y-3 mb-6">
@@ -574,11 +564,11 @@ _Booking received from Hookah69 Website_`;
                   />
                 )}
 
-                <div className="h-px bg-linear-to-r from-transparent via-pink-500/50 to-transparent my-4" />
+                <div className="h-px bg-linear-to-r from-transparent via-red-500/50 to-transparent my-4" />
 
                 <div className="flex justify-between items-center">
                   <span className="text-white font-bold">Total</span>
-                  <span className="text-3xl font-bold text-pink-500">
+                  <span className="text-3xl font-bold text-red-500">
                     रू {totalPrice}
                   </span>
                 </div>
@@ -597,12 +587,12 @@ _Booking received from Hookah69 Website_`;
             id="summary-section"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-8 p-6 bg-linear-to-r from-pink-500/10 to-transparent rounded-2xl border border-pink-500/30"
+            className="mt-8 p-6 bg-linear-to-r from-red-500/10 to-transparent rounded-2xl border border-red-500/30"
           >
             <h3 className="text-xl font-bold text-white mb-4">Booking Sent!</h3>
             <p className="text-white/60 mb-4">
-              Your booking details have been sent via WhatsApp. You&apos;ll
-              receive confirmation shortly.
+              Your anniversary booking details have been sent via WhatsApp.
+              You&apos;ll receive confirmation shortly.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <SummaryCard label="Guests" value={`${formData.guests} People`} />
@@ -638,4 +628,4 @@ const SummaryCard = ({ label, value }) => (
   </div>
 );
 
-export default BirthdayBook;
+export default AnniversaryBook;

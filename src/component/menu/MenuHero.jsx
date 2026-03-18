@@ -9,7 +9,7 @@ const MenuHero = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/public/hookah/hookan1.jpg"
+          src="/hookah/hookan1.jpg"
           alt="Menu Background"
           fill
           className="object-cover"

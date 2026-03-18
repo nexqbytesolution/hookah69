@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MenuHero from "@/component/menu/MenuHero";
 import CategoryTabs from "@/component/menu/CategoryTabs";
@@ -22,10 +22,6 @@ import {
 const MenuPage = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [isLoading, setIsLoading] = useState(false);
-
-  //   useEffect(() => {
-  //     setIsLoading(false);
-  //   }, []);
 
   const categories = [
     { id: "all", name: "All Items", icon: FaFire },

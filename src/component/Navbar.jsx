@@ -14,6 +14,7 @@ import {
   HiOutlineClock,
   HiUserGroup,
 } from "react-icons/hi";
+import { FaInfoCircle } from "react-icons/fa";
 import {
   FaFacebookF,
   FaInstagram,
@@ -59,6 +60,7 @@ const Navbar = () => {
     { name: "Menu", href: "/menu", icon: HiSparkles },
     { name: "Team", href: "/team", icon: IoPeople },
     { name: "Contact", href: "/contact", icon: HiPhone },
+    { name: "About", href: "/about", icon: FaInfoCircle },
   ];
 
   const socialIcons = [
@@ -135,7 +137,7 @@ const Navbar = () => {
                     href={item.href}
                     className="text-white/90 hover:text-amber-500 transition-all duration-300 px-4 py-2 rounded-full text-sm font-medium flex items-center space-x-2 group relative"
                   >
-                    <Icon className="text-lg group-hover:rotate-12 transition-transform" />
+                    <Icon className="text-lg group-hover:rotate-12 transition-transform text-white" />
                     <span>{item.name}</span>
                     <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-1/2 -translate-x-1/2"></span>
                   </Link>
