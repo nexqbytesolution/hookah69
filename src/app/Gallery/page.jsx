@@ -55,7 +55,7 @@ const GalleryPage = () => {
   return (
     <main className="min-h-screen bg-[#1A2F4B] text-white">
       {/* Background Pattern */}
-      <div className="fixed inset-0 opacity-5 pointer-events-none">
+      <div className="fixed inset-0 mt-5 opacity-5 pointer-events-none">
         <div
           className="absolute inset-0"
           style={{
@@ -70,7 +70,7 @@ const GalleryPage = () => {
 
       {/* Featured Section */}
       {featuredItems.length > 0 && (
-        <section className="relative -mt-20 z-10 container mx-auto px-4">
+        <section className="relative mt-20 z-10 container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -90,7 +90,7 @@ const GalleryPage = () => {
                     className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
                   >
                     <Image
-                      src={item.thumbnail || "/hookah/logo.jpg"}
+                      src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover"
                       width={400}
