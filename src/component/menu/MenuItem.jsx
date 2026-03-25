@@ -29,13 +29,7 @@ const MenuItem = ({ item, index }) => {
       <div className="absolute inset-0 bg-linear-to-br from-[#F4B400]/5 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
 
       {/* Popular Badge */}
-      {item.price > 500 && (
-        <div className="absolute top-4 right-4">
-          <span className="bg-[#F4B400] text-[#1A1A1A] text-xs px-3 py-1 rounded-full flex items-center gap-1">
-            <HiOutlineStar className="text-sm" /> Popular
-          </span>
-        </div>
-      )}
+      {item.price > 500 && <div className="absolute top-4 right-4"></div>}
 
       {/* Content */}
       <div className="relative">
@@ -66,21 +60,6 @@ const MenuItem = ({ item, index }) => {
             ))}
           </div>
         )}
-
-        {/* Actions */}
-        <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/10">
-          <button
-            onClick={() => setIsLiked(!isLiked)}
-            className="flex items-center gap-2 text-white/40 hover:text-[#F4B400] transition-colors"
-          >
-            <HiOutlineHeart
-              className={`text-lg ${isLiked ? "fill-[#F4B400] text-[#F4B400]" : ""}`}
-            />
-            <span className="text-sm">{isLiked ? "Saved" : "Save"}</span>
-          </button>
-
-          <span className="text-xs text-white/30">Order Now →</span>
-        </div>
       </div>
 
       {/* Hover Border Effect */}

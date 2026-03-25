@@ -56,17 +56,6 @@ const MenuPage = () => {
 
   return (
     <main className="min-h-screen bg-[#1A2F4B] text-white">
-      {/* Background Pattern */}
-      <div className="fixed inset-0 opacity-5 pointer-events-none">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `/hookah/logo.jpg`, // Path to your pattern image
-            backgroundSize: "40px 40px",
-          }}
-        />
-      </div>
-
       <MenuHero />
 
       <div className="sticky top-0 z-50 bg-[#1A2F4B]/95 backdrop-blur-md border-b border-[#F4B400]/20">
