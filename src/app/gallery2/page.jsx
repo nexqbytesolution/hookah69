@@ -220,7 +220,7 @@ const GalleryPage = () => {
   const filteredContent = getFilteredContent();
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-black to-[#1A2F4B] pt-24 pb-12">
+    <main className="min-h-screen bg-linear-to-b from-black to-[#1A2F4B] pt-24 pb-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -268,7 +268,7 @@ const GalleryPage = () => {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <div className="relative h-[500px] md:h-[600px]">
+            <div className="relative h-125 md:h-150">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentImageIndex}
@@ -285,7 +285,7 @@ const GalleryPage = () => {
                     height={1000}
                     width={1000}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent" />
                 </motion.div>
               </AnimatePresence>
 
@@ -423,7 +423,7 @@ const GalleryPage = () => {
                 transition={{ delay: index * 0.05 }}
                 className="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:border-[#F4B400]/40 transition-all group"
               >
-                <div className="relative aspect-[9/16]">
+                <div className="relative aspect-9/16">
                   {filteredContent.type === "tiktok" ||
                   activeTab === "tiktok" ? (
                     <blockquote
