@@ -48,7 +48,7 @@ const ContactInfo = () => {
     {
       icon: HiOutlineLocationMarker,
       title: "Address",
-      details: ["Lakeside Road", "Pokhara, Nepal"],
+      details: ["Lakeside Road", "Kathmandu, Nepal"],
       bgColor: "bg-yellow-500/10",
       iconColor: "text-yellow-500",
     },

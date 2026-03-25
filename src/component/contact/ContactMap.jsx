@@ -12,7 +12,9 @@ const ContactMap = () => {
         </div>
         <div>
           <h2 className="text-2xl font-bold text-white">Find Us Here</h2>
-          <p className="text-white/50 text-sm">Lakeside Road, Pokhara, Nepal</p>
+          <p className="text-white/50 text-sm">
+            Greenland Chowk, Kathmandu, Nepal
+          </p>
         </div>
       </div>
 

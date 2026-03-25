@@ -17,7 +17,6 @@ const GalleryPage = () => {
 
   // Safety check for galleryData
   const items = galleryData?.items || [];
-  const categories = galleryData?.categories || [];
   const hero = galleryData?.hero || {
     title: "Gallery",
     subtitle: "Moments",
@@ -81,45 +80,40 @@ const GalleryPage = () => {
             <h3 className="text-2xl font-bold text-[#1A2F4B] mb-4">
               Featured Moments
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {featuredItems.slice(0, 4).map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  whileHover={{ scale: 1.05 }}
-                  onClick={() => handleItemClick(item, items.indexOf(item))}
-                  className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
-                >
-                  <Image
-                    src={item.thumbnail || "/hookah/logo.jpg"}
-                    alt={item.title}
-                    className="w-full h-full object-cover"
-                    width={400}
-                    height={400}
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#1A2F4B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  {item.type === "video" && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-12 h-12 bg-[#F4B400] rounded-full flex items-center justify-center">
-                        <div className="w-0 h-0 border-t-8 border-b-8 border-l-12 border-transparent border-l-white ml-1"></div>
+            <marquee behavior="scroll" direction="left">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {featuredItems.slice(0, 4).map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    whileHover={{ scale: 1.05 }}
+                    onClick={() => handleItemClick(item, items.indexOf(item))}
+                    className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
+                  >
+                    <Image
+                      src={item.thumbnail || "/hookah/logo.jpg"}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                      width={400}
+                      height={400}
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-[#1A2F4B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    {item.type === "video" && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-12 h-12 bg-[#F4B400] rounded-full flex items-center justify-center">
+                          <div className="w-0 h-0 border-t-8 border-b-8 border-l-12 border-transparent border-l-white ml-1"></div>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </div>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </marquee>
           </motion.div>
         </section>
       )}
 
       {/* Filters */}
       <section className="container mx-auto px-4 py-12">
-        <GalleryFilters
-          categories={categories}
-          activeCategory={activeCategory}
-          setActiveCategory={setActiveCategory}
-          totalItems={filteredItems.length}
-        />
-
         {/* Gallery Grid */}
         {filteredItems.length > 0 ? (
           <GalleryGrid items={filteredItems} onItemClick={handleItemClick} />

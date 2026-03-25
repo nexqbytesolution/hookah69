@@ -60,7 +60,7 @@ const Navbar = () => {
     { name: "Menu", href: "/menu", icon: HiSparkles },
     { name: "Team", href: "/team", icon: IoPeople },
     { name: "Contact", href: "/contact", icon: HiPhone },
-    { name: "About", href: "/about", icon: FaInfoCircle },
+    { name: "About-Us", href: "/about", icon: FaInfoCircle },
   ];
 
   const socialIcons = [

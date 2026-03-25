@@ -2,7 +2,7 @@ import React from "react";
 import ChefGrid from "@/component/Cheif/ChefGrid";
 
 export const metadata = {
-  title: "Our Team | Hookah69 - Premium Lounge Pokhara",
+  title: "Our Team | Hookah69 - Premium Lounge Kathmandu",
   description:
     "Meet our expert culinary team at Hookah69. Passionate chefs and mixologists dedicated to creating unforgettable experiences.",
 };

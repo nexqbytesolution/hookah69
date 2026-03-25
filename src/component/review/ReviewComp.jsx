@@ -9,7 +9,7 @@ const reviews = [
     id: 1,
     name: "Alex Johnson",
     rating: 5,
-    text: "Best hookah lounge in Pokhara! Amazing atmosphere and the staff is incredibly friendly. The mint flavor is absolutely perfect!",
+    text: "Best hookah lounge in Kathmandu! Amazing atmosphere and the staff is incredibly friendly. The mint flavor is absolutely perfect!",
     date: "2 days ago",
     likes: 24,
     comments: 5,

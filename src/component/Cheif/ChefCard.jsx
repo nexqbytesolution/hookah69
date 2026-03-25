@@ -69,7 +69,7 @@ const SocialLinks = ({ social }) => {
 
 // ✅ Move Stats component outside
 const ChefStats = ({ experience, dishes, awards }) => (
-  <div className="grid grid-cols-3 gap-2 pt-4 border-t border-white/10">
+  <div className="flex justify-center gap-10 pt-4 border-t border-white/10">
     <div className="text-center">
       <div className="text-[#F4B400] font-bold">{experience}+</div>
       <div className="text-white/40 text-xs">Years</div>
@@ -77,10 +77,6 @@ const ChefStats = ({ experience, dishes, awards }) => (
     <div className="text-center">
       <div className="text-[#F4B400] font-bold">{dishes}+</div>
       <div className="text-white/40 text-xs">Dishes</div>
-    </div>
-    <div className="text-center">
-      <div className="text-[#F4B400] font-bold">{awards}+</div>
-      <div className="text-white/40 text-xs">Awards</div>
     </div>
   </div>
 );

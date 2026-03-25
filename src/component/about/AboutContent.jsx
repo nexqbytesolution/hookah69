@@ -46,13 +46,13 @@ const AboutContent = () => {
     {
       title: "Mountain Views",
       description:
-        "Nestled in Lakeside Pokhara, enjoy breathtaking Himalayan views while you relax.",
+        "Nestled in Lakeside Kathmandu, enjoy breathtaking Himalayan views while you relax.",
       icon: <GiPartyPopper className="text-3xl text-[#F4B400]" />,
     },
     {
       title: "Community First",
       description:
-        "Since 2014, we've been Pokhara's gathering place for artists, travelers, and locals alike.",
+        "Since 2014, we've been Kathmandu's gathering place for artists, travelers, and locals alike.",
       icon: <FaHeart className="text-3xl text-[#F4B400]" />,
     },
   ];
@@ -61,7 +61,7 @@ const AboutContent = () => {
     {
       name: "Rajan Thapa",
       role: "Founder & Owner",
-      bio: "With 15+ years in hospitality, Rajan created Hookah69 to bring Pokhara a truly premium lounge experience.",
+      bio: "With 15+ years in hospitality, Rajan created Hookah69 to bring Kathmandu a truly premium lounge experience.",
       image: "/cheif/cheif.jpg",
     },
     {
@@ -85,7 +85,7 @@ const AboutContent = () => {
   ];
 
   const journey = [
-    { year: "2014", event: "Hookah69 founded in Lakeside Pokhara" },
+    { year: "2014", event: "Hookah69 founded in Lakeside Kathmandu" },
     { year: "2016", event: "Expanded to 18+ projection screens" },
     { year: "2018", event: "Launched signature cocktail menu" },
     { year: "2020", event: "Renovated VIP lounge section" },
@@ -145,11 +145,18 @@ const AboutContent = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-xl text-white/70 mb-8 leading-relaxed max-w-2xl mx-auto"
+              className="text-xl text-white/70 mb-4  leading-relaxed max-w-2xl mx-auto"
             >
-              Pokhara&apos;s premier hookah lounge since 2024. Experience
-              premium flavors, crafted cocktails, and unforgettable moments with
-              panoramic mountain views.
+              Established in 2022, Hookah69 is dedicated to creating a premium
+              and relaxing experience for every guest. We take pride in serving
+              the perfect aroma of high-quality hookah flavors, carefully
+              crafted to deliver smooth and satisfying sessions every time.
+              Along with our exceptional hookah, we offer a wide range of
+              signature cocktails, refreshing mocktails, and delicious food
+              prepared with great taste and care. We are committed to providing
+              excellent hospitality and warm courtesy, ensuring that every visit
+              feels comfortable, enjoyable, and memorable. At Hookah69, it’s not
+              just about the flavor—it&apos;s about the complete experience.
             </motion.p>
 
             <motion.div
@@ -245,7 +252,7 @@ const AboutContent = () => {
 
               <p className="text-white/70 text-lg leading-relaxed">
                 Founded in 2024, Hookah69 began with a simple vision: to create
-                Pokhara&apos;s most premium lounge experience. Nestled in the
+                Kathmandu&apos;s most premium lounge experience. Nestled in the
                 heart of Lakeside, we&apos;ve grown from a small hookah bar to
                 the city&apos;s premier destination for entertainment and
                 relaxation.
@@ -326,7 +333,7 @@ const AboutContent = () => {
               </div>
               <h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
               <p className="text-white/70 leading-relaxed">
-                To be recognized as Pokhara&apos;s premier lounge destination,
+                To be recognized as Kathmandu&apos;s premier lounge destination,
                 setting the standard for quality, entertainment, and hospitality
                 in Nepal&apos;s hospitality industry.
               </p>
@@ -462,7 +469,7 @@ const AboutContent = () => {
               <p className="text-white/80 text-xl italic mb-6 relative z-10">
                 Hookah69 is more than just a lounge – it&apos;s an experience.
                 The atmosphere, the flavors, and the hospitality keep me coming
-                back every week. Best spot in Pokhara!
+                back every week. Best spot in Kathmandu!
               </p>
 
               <div className="flex items-center gap-4">
@@ -495,7 +502,7 @@ const AboutContent = () => {
               <span className="text-[#F4B400]">Hookah69</span>?
             </h2>
             <p className="text-white/60 text-lg mb-8">
-              Join us in Lakeside Pokhara for an unforgettable evening of
+              Join us in Lakeside Kathmandu for an unforgettable evening of
               premium flavors, crafted cocktails, and breathtaking mountain
               views.
             </p>

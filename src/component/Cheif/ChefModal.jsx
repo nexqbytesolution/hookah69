@@ -76,13 +76,6 @@ const ChefModal = ({ chef, isOpen, onClose }) => {
                       fill
                       className="object-cover"
                     />
-
-                    {/* Badge */}
-                    {chef.badge && (
-                      <div className="absolute top-4 left-4 bg-[#F4B400] text-[#1A2F4B] px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
-                        <FaAward /> {chef.badge}
-                      </div>
-                    )}
                   </div>
 
                   {/* Social Links */}
@@ -112,12 +105,10 @@ const ChefModal = ({ chef, isOpen, onClose }) => {
                     </h2>
                     <RatingStars rating={chef.rating} />
                   </div>
-
                   <p className="text-[#F4B400] text-lg mb-4">{chef.position}</p>
                   <p className="text-white/70 mb-6 leading-relaxed">
                     {chef.bio}
                   </p>
-
                   {/* Stats Grid */}
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="bg-white/5 rounded-xl p-4 text-center">
@@ -132,31 +123,8 @@ const ChefModal = ({ chef, isOpen, onClose }) => {
                       <div className="text-white font-bold">{chef.dishes}+</div>
                       <div className="text-white/40 text-xs">Dishes</div>
                     </div>
-                    <div className="bg-white/5 rounded-xl p-4 text-center">
-                      <FaAward className="text-[#F4B400] text-2xl mx-auto mb-2" />
-                      <div className="text-white font-bold">{chef.awards}+</div>
-                      <div className="text-white/40 text-xs">Awards</div>
-                    </div>
                   </div>
 
-                  {/* Specialties */}
-                  <div className="mb-6">
-                    <h3 className="text-white font-semibold mb-3">
-                      Specialties
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {chef.specialties?.map((specialty, idx) => (
-                        <span
-                          key={idx}
-                          className="px-4 py-2 bg-[#F4B400]/10 text-[#F4B400] rounded-full text-sm border border-[#F4B400]/20"
-                        >
-                          {specialty}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Contact Info */}
                   <div className="bg-white/5 rounded-xl p-4">
                     <h3 className="text-white font-semibold mb-3">
                       Contact Information

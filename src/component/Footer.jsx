@@ -36,7 +36,7 @@ const Footer = () => {
   const contactInfo = [
     { icon: FaMapMarkerAlt, text: "Greenland chowk, Kathmandu, Nepal" },
     { icon: FaPhone, text: "+977 981-2345678" },
-    { icon: FaEnvelope, text: "info@hookah69.com" },
+    { icon: FaEnvelope, text: "gyaudan@gmail.com" },
     { icon: FaRegClock, text: "Daily • 10AM - 10PM" },
   ];
 
@@ -127,7 +127,7 @@ const Footer = () => {
             </Link>
 
             <p className="text-white/70 text-xs md:text-sm leading-relaxed max-w-md md:max-w-full">
-              Experience the finest hookah blends in Pokhara&apos;s most
+              Experience the finest hookah blends in Kathmandu&apos;s most
               luxurious lounge. Where clouds meet comfort and memories are made.
             </p>
           </div>
@@ -205,29 +205,8 @@ const Footer = () => {
         </div>
 
         {/* Payment Methods & Copyright */}
-        <div className="pt-6 md:pt-8 mt-6 md:mt-8 border-t border-white/10">
+        <div className="pt-6 md:pt-4 mt-6 md:mt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row lg:flex-row items-center justify-between gap-4 md:gap-6">
-            {/* Payment Icons */}
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
-              <span className="text-white/40 text-xs md:text-sm">
-                We Accept:
-              </span>
-              <div className="flex items-center space-x-2 md:space-x-3">
-                {paymentIcons.map((payment, index) => {
-                  const Icon = payment.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="text-white/40 hover:text-amber-500 transition-colors"
-                      title={payment.name}
-                    >
-                      <Icon size={20} />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
             {/* Copyright */}
             <div className="text-center">
               <p className="text-white/40 text-xs md:text-sm">
@@ -241,44 +220,9 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="bg-black/50 py-2 md:py-3">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 text-[10px] md:text-xs text-white/30">
-            <Link
-              href="/privacy"
-              className="hover:text-amber-500 transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <span>•</span>
-            <Link
-              href="/terms"
-              className="hover:text-amber-500 transition-colors"
-            >
-              Terms
-            </Link>
-            <span>•</span>
-            <Link
-              href="/cookies"
-              className="hover:text-amber-500 transition-colors"
-            >
-              Cookies
-            </Link>
-            <span>•</span>
-            <Link
-              href="/sitemap"
-              className="hover:text-amber-500 transition-colors"
-            >
-              Sitemap
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Back to Top Button - Adjusted for mobile */}
       <Link
-        href="#"
+        href="/"
         className="group fixed bottom-4 right-4 md:bottom-8 md:right-8 w-10 h-10 md:w-12 md:h-12 bg-amber-500 rounded-full flex items-center justify-center text-black hover:bg-amber-400 transition-all hover:scale-110 shadow-lg hover:shadow-amber-500/25 animate-bounce-slow z-50"
         aria-label="Back to top"
       >

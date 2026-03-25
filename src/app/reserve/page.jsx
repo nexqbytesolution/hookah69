@@ -4,7 +4,7 @@ import ReservationForm from "@/component/reserve/ReservationForm";
 import BirthdayBook from "@/component/reserve/BirthdayBook";
 
 export const metadata = {
-  title: "Reserve Your Table | Hookah69 - Premium Lounge Pokhara",
+  title: "Reserve Your Table | Hookah69 - Premium Lounge Kathmandu",
   description:
     "Book your table at Hookah69 for an unforgettable experience with premium hookah and cocktails.",
 };

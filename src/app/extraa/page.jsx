@@ -135,7 +135,7 @@ const menuData = {
           premium: false,
         },
         {
-          name: "Pokhara Sunrise",
+          name: "Kathmandu Sunset",
           description: "Tequila, orange, grenadine, champagne",
           price: "रू 800",
           popular: false,
@@ -334,7 +334,7 @@ const menuData = {
   contact: {
     phone: "+977 981-2345678",
     email: "concierge@hookah69.com",
-    address: "Lakeside Road, Pokhara, Nepal",
+    address: "Greenland Chowk, Kathmandu, Nepal",
   },
 };
 

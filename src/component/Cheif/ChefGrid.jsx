@@ -5,82 +5,44 @@ import { motion, AnimatePresence } from "framer-motion";
 import ChefCard from "./ChefCard";
 import ChefModal from "./ChefModal.jsx";
 import {
-  HiOutlineFilter,
   HiOutlineSearch,
   HiOutlineViewGrid,
   HiOutlineViewList,
   HiOutlineUserGroup,
 } from "react-icons/hi";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 // Sample chef data
 export const chefsData = [
   {
     id: 1,
-    name: "Marco Bennett",
-    position: "Executive Chef",
-    bio: "With over 15 years of culinary excellence, Chef Marco specializes in fusion cuisine that blends traditional flavors with modern techniques.",
+    name: "Suresh Giri",
+    position: "Bartender ",
+    bio: "Suresh Giri, 21 Age, hailing from Sindhupalchok, is a skilled and passionate hospitality professional with over three years of hands-on experience as both a bartender and barista. Known for his ability to craft quality beverages—ranging from expertly brewed coffee to well-balanced cocktails—he combines creativity with excellent customer service to deliver a memorable experience for every guest. With a strong work ethic and a friendly personality, Suresh consistently brings positive energy to the workplace, making him a valuable addition to any team in the food and beverage industry.",
     image: "/cheif/cheif.jpg",
     rating: 4.8,
-    experience: 15,
-    dishes: 234,
-    awards: 8,
-    badge: "Master Chef",
-    location: "Pokhara",
+    experience: 3,
+    dishes: 34,
+    location: "Kathmandu",
     specialty: "Fusion Cuisine",
     specialties: ["Hookah Mixology", "Fusion", "Grill", "Sauces"],
     social: [
       { icon: FaFacebookF, url: "https://facebook.com" },
       { icon: FaInstagram, url: "https://instagram.com" },
-      { icon: FaTwitter, url: "https://twitter.com" },
     ],
     email: "marco@hookah69.com",
     phone: "+977 981-2345678",
   },
   {
-    id: 2,
-    name: "Sarah Chen",
-    position: "Mixology Specialist",
-    bio: "Award-winning mixologist known for creating signature cocktails that tell a story. Expert in molecular mixology and flavor pairing.",
-    image: "/cheif/cheif2.avif",
-    rating: 4.9,
-    experience: 10,
-    dishes: 156,
-    awards: 12,
-    badge: "Mixologist of the Year",
-    location: "Pokhara",
-    specialty: "Cocktails",
-    specialties: [
-      "Molecular Mixology",
-      "Cocktails",
-      "Flavor Pairing",
-      "Bar Design",
-    ],
-    social: [
-      { icon: FaFacebookF, url: "https://facebook.com" },
-      { icon: FaInstagram, url: "https://instagram.com" },
-      { icon: FaLinkedinIn, url: "https://linkedin.com" },
-    ],
-    email: "sarah@hookah69.com",
-    phone: "+977 981-2345679",
-  },
-  {
     id: 3,
-    name: "Rajesh Sharma",
-    position: "Hookah Master",
-    bio: "Master of traditional hookah preparation with a modern twist. Expert in flavor combinations and tobacco blending techniques.",
+    name: "Krishna Gurung",
+    position: "Cook",
+    bio: "Krishna Gurung, 21 Aged, from Gorkha, is a dedicated and hardworking culinary professional with three years of experience in the kitchen. Starting his journey as a helper and steadily working his way up to a cook, he has developed strong skills, discipline, and a deep understanding of kitchen operations. Known for his commitment, reliability, and willingness to learn, Krishna consistently delivers quality food while maintaining high standards of hygiene and teamwork. His growth and determination make him a valuable asset to Hookah69.",
     image: "/cheif/cheif2.avif",
     rating: 4.7,
-    experience: 12,
+    experience: 3,
     dishes: 89,
-    awards: 5,
-    badge: "Hookah Expert",
-    location: "Pokhara",
+    location: "Kathmandu",
     specialty: "Hookah",
     specialties: [
       "Tobacco Blending",
@@ -91,23 +53,41 @@ export const chefsData = [
     social: [
       { icon: FaFacebookF, url: "https://facebook.com" },
       { icon: FaInstagram, url: "https://instagram.com" },
-      { icon: FaTwitter, url: "https://twitter.com" },
     ],
     email: "rajesh@hookah69.com",
     phone: "+977 981-2345680",
   },
   {
+    id: 2,
+    name: "Shova Gurung",
+    position: "Waitress",
+    bio: "Shova Gurung, 20 Age, from Lamjung, is a talented and versatile hospitality professional with four years of experience as a waitress. An all-rounder in both service and bar operations, she is skilled at delivering excellent customer service while also assisting in beverage preparation and bar support. Known for her friendly attitude, strong communication skills, and ability to perform efficiently in fast-paced environments, Shova creates a welcoming and enjoyable experience for every guest. Her adaptability, teamwork, and dedication make her a valuable asset to Hookah69.",
+    image: "/cheif/cheif2.avif",
+    rating: 4.9,
+    experience: 4,
+    dishes: 5,
+    location: "Kathmandu",
+    specialty: "Cocktails",
+    specialties: ["Relation Management", "Hygiene "],
+    social: [
+      { icon: FaFacebookF, url: "https://facebook.com" },
+      { icon: FaInstagram, url: "https://instagram.com" },
+    ],
+    email: "sarah@hookah69.com",
+    phone: "+977 981-2345679",
+  },
+
+  {
     id: 4,
-    name: "Elena Rodriguez",
-    position: "Pastry Chef",
-    bio: "Creative pastry artist who turns desserts into edible art. Specializes in fusion desserts combining Asian and European techniques.",
+    name: "Sujan Tamang",
+    position: "Cook",
+    bio: "Sujan Tamang, 21 Aged, from Sindhupalchok, is a passionate and hardworking culinary professional with three years of experience in the kitchen. Starting from the ground level, he has steadily grown through dedication and hands-on learning to become a skilled cook. He has a strong understanding of kitchen operations, food preparation, and maintaining hygiene standards. Known for his discipline, consistency, and eagerness to improve, Sujan brings both energy and commitment to his work, making him a reliable and valuable member of any kitchen team.",
     image: "/cheif/cheif2.avif",
     rating: 4.6,
-    experience: 8,
-    dishes: 145,
+    experience: 3,
+    dishes: 35,
     awards: 4,
-    badge: "Pastry Artist",
-    location: "Pokhara",
+    location: "Kathmandu",
     specialty: "Desserts",
     specialties: [
       "Patisserie",
@@ -117,7 +97,7 @@ export const chefsData = [
     ],
     social: [
       { icon: FaInstagram, url: "https://instagram.com" },
-      { icon: FaTwitter, url: "https://twitter.com" },
+      { icon: FaFacebookF, url: "https://facebook.com" },
     ],
     email: "elena@hookah69.com",
     phone: "+977 981-2345681",
@@ -126,13 +106,13 @@ export const chefsData = [
     id: 5,
     name: "Michael Zhang",
     position: "Sous Chef",
-    bio: "Rising star in the culinary world, known for his innovative approach to traditional dishes and exceptional attention to detail.",
+    bio: "Suresh Sunar, 20 Age , from Gulmi, is a dedicated and hardworking individual with 2.5 years of experience as a kitchen helper. Starting from the very root, he has gained valuable hands-on knowledge of kitchen operations, food preparation support, and maintaining cleanliness and hygiene standards. Known for his strong work ethic, willingness to learn, and positive attitude, Suresh consistently supports the team with reliability and efficiency, making him a dependable asset in any kitchen environment.",
     image: "/cheif/cheif2.avif",
     rating: 4.5,
     experience: 6,
     dishes: 98,
     awards: 2,
-    location: "Pokhara",
+    location: "Kathmandu",
     specialty: "Asian Fusion",
     specialties: ["Asian Fusion", "Wok Cooking", "Dim Sum", "Sushi"],
     social: [
@@ -153,7 +133,7 @@ export const chefsData = [
     dishes: 167,
     awards: 6,
     badge: "Bar Star",
-    location: "Pokhara",
+    location: "Kathmandu",
     specialty: "Cocktails",
     specialties: [
       "Craft Cocktails",
@@ -163,7 +143,7 @@ export const chefsData = [
     ],
     social: [
       { icon: FaInstagram, url: "https://instagram.com" },
-      { icon: FaLinkedinIn, url: "https://linkedin.com" },
+      { icon: FaFacebookF, url: "https://facebook.com" },
     ],
     email: "priya@hookah69.com",
     phone: "+977 981-2345683",
@@ -223,25 +203,6 @@ const ChefGrid = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            {/* Filter */}
-            <div className="flex items-center gap-2 bg-white/5 rounded-xl p-1">
-              <HiOutlineFilter className="text-white/40 ml-2" />
-              {specialties.map((s) => (
-                <button
-                  key={s}
-                  onClick={() => setFilter(s)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
-                    filter === s
-                      ? "bg-[#F4B400] text-[#1A2F4B]"
-                      : "text-white/70 hover:text-white"
-                  }`}
-                >
-                  {s.charAt(0).toUpperCase() + s.slice(1)}
-                </button>
-              ))}
-            </div>
-
-            {/* View Toggle */}
             <div className="flex items-center gap-1 bg-white/5 rounded-xl p-1">
               <button
                 onClick={() => setViewMode("grid")}
