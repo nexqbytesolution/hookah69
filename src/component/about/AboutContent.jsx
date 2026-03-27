@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   FaUsers,
-  FaRocket,
-  FaAward,
   FaHeart,
   FaCheckCircle,
   FaQuoteLeft,
@@ -16,11 +14,10 @@ import {
   FaMusic,
   FaRegClock,
 } from "react-icons/fa";
-import { GiHook, GiCocktail, GiPartyPopper } from "react-icons/gi"; // ✅ Changed GiHook to GiHook
+import { GiHook, GiPartyPopper } from "react-icons/gi";
 
 import { motion } from "framer-motion";
 import { HiOutlineSparkles } from "react-icons/hi";
-import { BsGraphUpArrow } from "react-icons/bs";
 
 const AboutContent = () => {
   const stats = [

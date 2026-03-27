@@ -202,7 +202,6 @@ const GalleryVideo = ({ video, isActive, onPlayStateChange }) => {
         loop={video.loop}
       />
 
-      {/* Video Overlay - Gradient */}
       <AnimatePresence>
         {showControls && (
           <motion.div
@@ -214,7 +213,6 @@ const GalleryVideo = ({ video, isActive, onPlayStateChange }) => {
         )}
       </AnimatePresence>
 
-      {/* Top Bar - Title and Actions */}
       <AnimatePresence>
         {showControls && (
           <motion.div
@@ -253,7 +251,6 @@ const GalleryVideo = ({ video, isActive, onPlayStateChange }) => {
         )}
       </AnimatePresence>
 
-      {/* Center Play Button - Large when paused */}
       <AnimatePresence>
         {!isPlaying && (
           <motion.button
@@ -268,7 +265,6 @@ const GalleryVideo = ({ video, isActive, onPlayStateChange }) => {
         )}
       </AnimatePresence>
 
-      {/* Bottom Controls */}
       <AnimatePresence>
         {showControls && (
           <motion.div
@@ -277,7 +273,6 @@ const GalleryVideo = ({ video, isActive, onPlayStateChange }) => {
             exit={{ y: 50, opacity: 0 }}
             className="absolute bottom-0 left-0 right-0 p-6 space-y-4 z-10"
           >
-            {/* Progress Bar */}
             <div className="relative group">
               <input
                 type="range"
@@ -292,10 +287,8 @@ const GalleryVideo = ({ video, isActive, onPlayStateChange }) => {
               />
             </div>
 
-            {/* Control Buttons */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                {/* Play/Pause */}
                 <button
                   onClick={togglePlay}
                   className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors"
@@ -307,7 +300,6 @@ const GalleryVideo = ({ video, isActive, onPlayStateChange }) => {
                   )}
                 </button>
 
-                {/* Volume Control */}
                 <div className="flex items-center gap-2">
                   <button
                     onClick={toggleMute}
@@ -334,7 +326,6 @@ const GalleryVideo = ({ video, isActive, onPlayStateChange }) => {
                   />
                 </div>
 
-                {/* Time Display - Now using state instead of ref */}
                 <div className="text-white/70 text-sm">
                   {formatTime(currentTime)} /{" "}
                   {formatTime(duration || video.duration || 0)}
@@ -342,12 +333,10 @@ const GalleryVideo = ({ video, isActive, onPlayStateChange }) => {
               </div>
 
               <div className="flex items-center gap-2">
-                {/* Video Quality/Info */}
                 <div className="px-3 py-1 bg-white/10 rounded-lg text-white/70 text-sm">
                   {video.quality || "HD"}
                 </div>
 
-                {/* Fullscreen */}
                 <button
                   onClick={toggleFullscreen}
                   className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors"
@@ -364,13 +353,11 @@ const GalleryVideo = ({ video, isActive, onPlayStateChange }) => {
         )}
       </AnimatePresence>
 
-      {/* Video Duration Badge */}
       <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full text-white/90 text-sm flex items-center gap-1 z-10">
         <HiOutlineClock className="text-[#F4B400]" />
         <span>{video.duration}</span>
       </div>
 
-      {/* Video Source Indicator */}
       {video.source === "youtube" && (
         <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full text-white/90 text-sm flex items-center gap-1 z-10">
           <FaYoutube className="text-red-500" />

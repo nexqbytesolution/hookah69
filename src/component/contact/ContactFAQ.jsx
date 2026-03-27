@@ -6,7 +6,7 @@ import {
   HiOutlineChevronDown,
   HiOutlineQuestionMarkCircle,
 } from "react-icons/hi";
-import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
+import { HiOutlinePhone } from "react-icons/hi";
 
 const ContactFAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);

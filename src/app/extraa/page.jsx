@@ -12,25 +12,9 @@ import {
   FaWineGlassAlt,
   FaUtensils,
 } from "react-icons/fa";
-import {
-  HiOutlineSparkles,
-  HiOutlineHeart,
-  HiOutlineStar,
-  HiOutlineFire,
-} from "react-icons/hi2";
-import {
-  TbSmoking,
-  TbGlass,
-  TbCoffee,
-  TbBeer,
-  TbBottle,
-  TbCookie,
-  TbMeat,
-  TbPlant,
-  TbCrown,
-} from "react-icons/tb";
+import { HiOutlineSparkles, HiOutlineFire } from "react-icons/hi2";
+import { TbGlass, TbCoffee, TbCookie, TbPlant, TbCrown } from "react-icons/tb";
 
-// Premium Menu Data with updated pricing
 const menuData = {
   header: {
     title: "HOOKAH",

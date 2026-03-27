@@ -11,7 +11,6 @@ import {
   HiOutlineHeart,
   HiOutlineVideoCamera,
 } from "react-icons/hi";
-// import { FaPlay, FaPause } from "react-icons/fa";
 import Image from "next/image";
 
 const Lightbox = ({
@@ -89,7 +88,6 @@ const Lightbox = ({
             </button>
           )}
 
-          {/* Content */}
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -117,7 +115,6 @@ const Lightbox = ({
               />
             )}
 
-            {/* Info Bar */}
             <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/90 to-transparent p-6 rounded-b-xl">
               <div className="flex items-center justify-between">
                 <div>

@@ -6,7 +6,6 @@ import {
   FaStar,
   FaStarHalfAlt,
   FaRegStar,
-  FaAward,
   FaUtensils,
   FaTrophy,
 } from "react-icons/fa";
@@ -15,10 +14,8 @@ import {
   HiOutlineMail,
   HiOutlinePhone,
   HiOutlineLocationMarker,
-  HiOutlineBriefcase,
 } from "react-icons/hi";
 
-// ✅ Move RatingStars outside
 const RatingStars = ({ rating }) => {
   const stars = [];
   const fullStars = Math.floor(rating);

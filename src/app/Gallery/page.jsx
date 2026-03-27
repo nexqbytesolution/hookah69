@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import GalleryHero from "@/component/Gallery/GalleryHero";
-import GalleryFilters from "@/component/Gallery/GalleryFilters";
 import GalleryGrid from "@/component/Gallery/GalleryGrid";
 import Lightbox from "@/component/Gallery/Lightbox";
 import galleryData from "@/component/Gallery/GalleryData";

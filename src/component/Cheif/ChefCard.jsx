@@ -3,29 +3,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedinIn,
-  FaStar,
-  FaStarHalfAlt,
-  FaRegStar,
-  FaAward,
-  FaUtensils,
-  FaCocktail,
-  FaFire,
-} from "react-icons/fa";
-import {
-  HiOutlineMail,
-  HiOutlinePhone,
-  HiOutlineLocationMarker,
-  HiOutlineBriefcase,
-  HiOutlineClock,
-  HiOutlineHeart,
-} from "react-icons/hi";
+import { FaStar, FaStarHalfAlt, FaRegStar, FaAward } from "react-icons/fa";
+import { HiOutlineLocationMarker, HiOutlineBriefcase } from "react-icons/hi";
 
-// ✅ Move RatingStars outside of the main component
 const RatingStars = ({ rating }) => {
   const stars = [];
   const fullStars = Math.floor(rating);
@@ -43,7 +23,6 @@ const RatingStars = ({ rating }) => {
   return <div className="flex gap-0.5">{stars}</div>;
 };
 
-// ✅ Move SocialLinks component outside
 const SocialLinks = ({ social }) => {
   if (!social) return null;
 
@@ -126,25 +105,6 @@ const ChefCard = ({ chef, variant = "default", onClick }) => {
 
           {/* linear Overlay */}
           <div className="absolute inset-0 bg-linear-to-t from-[#1A2F4B] via-transparent to-transparent opacity-60"></div>
-
-          {/* Social Links - Appear on Hover */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 20 }}
-            className="absolute bottom-4 left-0 right-0 flex justify-center gap-3 z-10"
-          >
-            <SocialLinks social={chef.social} />
-          </motion.div>
-
-          {/* Like Button */}
-          <button
-            onClick={() => setIsLiked(!isLiked)}
-            className="absolute top-4 right-4 w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-[#F4B400] transition-colors z-10"
-          >
-            <HiOutlineHeart
-              className={`text-xl ${isLiked ? "fill-[#F4B400] text-[#F4B400]" : "text-white"}`}
-            />
-          </button>
 
           {/* Badge */}
           {chef.badge && (

@@ -10,9 +10,7 @@ import {
   HiOutlineViewList,
   HiOutlineUserGroup,
 } from "react-icons/hi";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
-// Sample chef data
 export const chefsData = [
   {
     id: 6,
@@ -26,10 +24,7 @@ export const chefsData = [
     location: "Kathmandu",
     specialty: "Cocktails",
     specialties: ["Craft Cocktails", "Infusions", "Beer Programs"],
-    social: [
-      { icon: FaInstagram, url: "https://instagram.com" },
-      { icon: FaFacebookF, url: "https://facebook.com" },
-    ],
+
     email: "priya@hookah69.com",
     phone: "+977 981-2345683",
   },
@@ -45,10 +40,7 @@ export const chefsData = [
     location: "Kathmandu",
     specialty: "Fusion Cuisine",
     specialties: ["Hookah Mixology", "Fusion", "Grill", "Sauces"],
-    social: [
-      { icon: FaFacebookF, url: "https://facebook.com" },
-      { icon: FaInstagram, url: "https://instagram.com" },
-    ],
+
     email: "marco@hookah69.com",
     phone: "+977 981-2345678",
   },
@@ -64,10 +56,7 @@ export const chefsData = [
     location: "Kathmandu",
     specialty: "Hookah",
     specialties: ["Tobacco Blending", "Fruit Hookahs", "Ice Bases"],
-    social: [
-      { icon: FaFacebookF, url: "https://facebook.com" },
-      { icon: FaInstagram, url: "https://instagram.com" },
-    ],
+
     email: "rajesh@hookah69.com",
     phone: "+977 981-2345680",
   },
@@ -83,10 +72,7 @@ export const chefsData = [
     location: "Kathmandu",
     specialty: "Cocktails",
     specialties: ["Relation Management", "Hygiene "],
-    social: [
-      { icon: FaFacebookF, url: "https://facebook.com" },
-      { icon: FaInstagram, url: "https://instagram.com" },
-    ],
+
     email: "sarah@hookah69.com",
     phone: "+977 981-2345679",
   },
@@ -104,10 +90,7 @@ export const chefsData = [
     location: "Kathmandu",
     specialty: "Desserts",
     specialties: ["Patisserie", "Plated Desserts", "Chocolate Work"],
-    social: [
-      { icon: FaInstagram, url: "https://instagram.com" },
-      { icon: FaFacebookF, url: "https://facebook.com" },
-    ],
+
     email: "elena@hookah69.com",
     phone: "+977 981-2345681",
   },

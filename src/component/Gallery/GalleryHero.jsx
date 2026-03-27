@@ -7,7 +7,6 @@ import { HiOutlinePhotograph, HiOutlineVideoCamera } from "react-icons/hi";
 const GalleryHero = ({ data }) => {
   return (
     <section className="relative h-[60vh] min-h-125 w-full overflow-hidden">
-      {/* Background Image */}
       <div className="absolute inset-0">
         <Image
           src="/hookah/hookan1.jpg"
@@ -20,7 +19,6 @@ const GalleryHero = ({ data }) => {
         <div className="absolute inset-0 bg-linear-to-b from-[#1A2F4B]/90 via-[#1A2F4B]/70 to-[#1A2F4B]"></div>
       </div>
 
-      {/* Floating Icons */}
       <motion.div
         animate={{
           y: [0, -20, 0],
@@ -51,7 +49,6 @@ const GalleryHero = ({ data }) => {
         <HiOutlineVideoCamera className="text-9xl" />
       </motion.div>
 
-      {/* Content */}
       <div className="relative h-full flex items-center justify-center">
         <div className="text-center max-w-4xl mx-auto px-4">
           <motion.div
@@ -85,7 +82,6 @@ const GalleryHero = ({ data }) => {
             {data.description}
           </motion.p>
 
-          {/* Stats */}
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

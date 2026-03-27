@@ -345,8 +345,8 @@ _Booking received from Hookah69 Website_`;
             </label>
             <input
               type="time"
-              min="07:00"
-              max="23:00"
+              min="10:00"
+              max="22:00"
               {...register("time", { required: "Time is required" })}
               className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#F4B400] transition-colors"
             />
@@ -354,7 +354,7 @@ _Booking received from Hookah69 Website_`;
               <p className="text-red-500 text-xs mt-1">{errors.time.message}</p>
             )}
             <p className="text-white/30 text-xs mt-1">
-              Open: 7:00 AM - 23:00 PM
+              Open: 10:00 AM - 22:00 PM
             </p>
           </div>
         </div>

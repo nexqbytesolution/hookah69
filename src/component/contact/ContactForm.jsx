@@ -31,13 +31,11 @@ const ContactForm = ({ formStatus, setFormStatus }) => {
     },
   });
 
-  // Watch form values for WhatsApp message
   const formValues = watch();
 
   const onSubmit = async (data) => {
     setIsSending(true);
 
-    // Format the message
     const message = `📬 *New Message from Hookah69 Website* 📬
     
 👤 *Name:* ${data.name}
@@ -47,12 +45,10 @@ const ContactForm = ({ formStatus, setFormStatus }) => {
 💭 *Message:*
 ${data.message}`;
 
-    // Encode for WhatsApp
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/9779812345678?text=${encodedMessage}`;
 
     try {
-      // Open WhatsApp with the message
       window.open(whatsappUrl, "_blank");
 
       setFormStatus({

@@ -7,55 +7,46 @@ import {
   HiOutlineLocationMarker,
   HiOutlineClock,
   HiOutlineGlobe,
-  HiHome,
 } from "react-icons/hi";
-import { FaWhatsapp, FaViber } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 
 const ContactInfo = () => {
   const contactDetails = [
     {
       icon: HiOutlinePhone,
       title: "Phone",
-      details: ["+977 981-2345678", "+977 984-1234567"],
-      action: "tel:+9779812345678",
+      details: ["+9779702027432"],
+      action: "tel:+9779702027432",
       bgColor: "bg-blue-500/10",
       iconColor: "text-blue-500",
     },
     {
       icon: HiOutlineMail,
       title: "Email",
-      details: ["info@hookah69.com", "reservations@hookah69.com"],
-      action: "mailto:info@hookah69.com",
+      details: ["gyaudan@gmail.com"],
+      action: "gyaudan@gmail.com",
       bgColor: "bg-red-500/10",
       iconColor: "text-red-500",
     },
     {
       icon: FaWhatsapp,
       title: "WhatsApp",
-      details: ["+977 981-2345678"],
-      action: "https://wa.me/9779812345678",
+      details: ["+9779702027432"],
+      action: "https://wa.me/9779702027432",
       bgColor: "bg-green-500/10",
       iconColor: "text-green-500",
     },
     {
-      icon: FaViber,
-      title: "Viber",
-      details: ["+977 981-2345678"],
-      action: "viber://chat?number=9779812345678",
-      bgColor: "bg-purple-500/10",
-      iconColor: "text-purple-500",
-    },
-    {
       icon: HiOutlineLocationMarker,
       title: "Address",
-      details: ["Lakeside Road", "Kathmandu, Nepal"],
+      details: ["Greenland Chowk", "Kathmandu, Nepal"],
       bgColor: "bg-yellow-500/10",
       iconColor: "text-yellow-500",
     },
     {
       icon: HiOutlineClock,
       title: "Opening Hours",
-      details: ["Sun - Thu: 4PM - 12AM", "Fri - Sat: 4PM - 2AM"],
+      details: ["Sun - Sat: 10:00 AM - 10:00 PM"],
       bgColor: "bg-orange-500/10",
       iconColor: "text-orange-500",
     },

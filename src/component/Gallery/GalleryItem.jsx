@@ -44,7 +44,6 @@ const GalleryItem = ({ item, index, onClick }) => {
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
 
-      {/* Gradient Overlay */}
       <div
         className={`absolute inset-0 bg-linear-to-t from-[#1A2F4B] via-transparent to-transparent transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-60"}`}
       ></div>
@@ -58,7 +57,6 @@ const GalleryItem = ({ item, index, onClick }) => {
         </div>
       )}
 
-      {/* Featured Badge */}
       {item.featured && (
         <div className="absolute top-4 right-4">
           <div className="bg-[#F4B400] text-[#1A2F4B] text-xs px-3 py-1 rounded-full">
@@ -67,14 +65,12 @@ const GalleryItem = ({ item, index, onClick }) => {
         </div>
       )}
 
-      {/* Content */}
       <div
         className={`absolute bottom-0 left-0 right-0 p-4 transform transition-transform duration-300 ${isHovered ? "translate-y-0" : "translate-y-2"}`}
       >
         <h3 className="text-white font-semibold text-lg mb-1">{item.title}</h3>
         <p className="text-white/70 text-sm line-clamp-2">{item.description}</p>
 
-        {/* Meta Info */}
         <div className="flex items-center justify-between mt-3">
           <span className="text-white/50 text-xs">{item.date}</span>
 
@@ -97,7 +93,6 @@ const GalleryItem = ({ item, index, onClick }) => {
         </div>
       </div>
 
-      {/* Play Button for Videos */}
       {item.type === "video" && isHovered && (
         <motion.div
           initial={{ scale: 0 }}

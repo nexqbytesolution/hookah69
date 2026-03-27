@@ -15,7 +15,6 @@ const galleryData = {
   ],
 
   items: [
-    // Ambience Images
     {
       id: 1,
       type: "image",
@@ -299,7 +298,7 @@ const galleryData = {
       category: "ambience",
       title: "Sunset at Hookah69",
       description: "Beautiful sunset views from our lounge",
-      videoId: "dQw4w9WgXcQ", // Replace with actual YouTube ID
+      videoId: "dQw4w9WgXcQ",
       thumbnail: "/hookah/logo.jpg",
       duration: "1:20",
       date: "2024-01-19",

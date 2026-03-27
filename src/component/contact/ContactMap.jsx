@@ -31,14 +31,12 @@ const ContactMap = () => {
           className="filter grayscale contrast-125 hover:grayscale-0 transition-all duration-500"
         />
 
-        {/* Map Overlay */}
         <motion.div
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
           className="absolute inset-0 bg-linear-to-t from-[#1A2F4B]/80 via-transparent to-transparent pointer-events-none"
         />
 
-        {/* Location Marker */}
         <motion.div
           animate={{
             y: [0, -10, 0],

@@ -1,66 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaSnapchatGhost,
-  FaTiktok,
-  FaYoutube,
-  FaLinkedinIn,
-  FaPinterest,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 
 const ContactSocial = () => {
   const socialLinks = [
     {
       icon: FaFacebookF,
-      href: "https://facebook.com/hookah69",
+      href: "https://www.facebook.com/people/Hookaah-SixNine/pfbid0RSXHitt2vhXAAicdhci7Ufod7hG4mXutmCjxcx9FVpCdHBrJoLekWxHav7niHqmLl/?ref=NONE_ig_profile_ac",
       label: "Facebook",
       color: "hover:bg-blue-600",
     },
     {
       icon: FaInstagram,
-      href: "https://instagram.com/hookah69",
+      href: "https://www.instagram.com/hookah69_official",
       label: "Instagram",
       color: "hover:bg-pink-600",
     },
-    {
-      icon: FaTwitter,
-      href: "https://twitter.com/hookah69",
-      label: "Twitter",
-      color: "hover:bg-blue-400",
-    },
-    {
-      icon: FaSnapchatGhost,
-      href: "https://snapchat.com/add/hookah69",
-      label: "Snapchat",
-      color: "hover:bg-yellow-500",
-    },
+
     {
       icon: FaTiktok,
-      href: "https://tiktok.com/@hookah69",
+      href: "https://www.tiktok.com/@hookah696",
       label: "TikTok",
       color: "hover:bg-black",
-    },
-    {
-      icon: FaYoutube,
-      href: "https://youtube.com/hookah69",
-      label: "YouTube",
-      color: "hover:bg-red-600",
-    },
-    {
-      icon: FaLinkedinIn,
-      href: "https://linkedin.com/company/hookah69",
-      label: "LinkedIn",
-      color: "hover:bg-blue-700",
-    },
-    {
-      icon: FaPinterest,
-      href: "https://pinterest.com/hookah69",
-      label: "Pinterest",
-      color: "hover:bg-red-700",
     },
   ];
 
@@ -76,7 +38,7 @@ const ContactSocial = () => {
         Follow Us
       </h3>
 
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-3 gap-3">
         {socialLinks.map((social, index) => {
           const Icon = social.icon;
           return (
@@ -96,7 +58,6 @@ const ContactSocial = () => {
         })}
       </div>
 
-      {/* Social Stats */}
       <div className="grid grid-cols-2 gap-3 mt-4 pt-4 border-t border-white/10">
         <div className="text-center">
           <p className="text-2xl font-bold text-[#F4B400]">10k+</p>
